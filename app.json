@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "appMeiyu",
+    "slug": "appMeiyu",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "appMeiyu"
+}
