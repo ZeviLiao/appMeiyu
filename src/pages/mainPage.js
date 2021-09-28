@@ -1,12 +1,16 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 // create a component
 const MainPage = () => {
     return (
         <View style={styles.container}>
-            <Text>MainPage</Text>
+            <div>
+                <div className="logo">
+                    <Image style={{ width: 300, height: 100 }} source={require('../../assets/icon/logo.svg')} />
+                </div>
+            </div>
         </View>
     );
 };
@@ -17,7 +21,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        // backgroundColor: '#2c3e50',
     },
 });
 
