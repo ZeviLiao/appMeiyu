@@ -11,7 +11,7 @@ function HomeScreen({ navigation }) {
         onPress={() => navigation.navigate('Settings')}
         style={{ backgroundColor: 'plum', padding: 10, marginBottom: 10, marginTop: 10 }}
       >
-      <Text>Settings</Text>
+        <Text>Settings</Text>
       </Pressable>
     </View>
   );
@@ -25,7 +25,7 @@ function SettingsScreen({ navigation }) {
         onPress={() => navigation.navigate('Home')}
         style={{ backgroundColor: 'plum', padding: 10, marginBottom: 10, marginTop: 10 }}
       >
-      <Text>Home</Text>
+        <Text>Home</Text>
       </Pressable>
     </View>
   );
