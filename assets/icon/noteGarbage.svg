@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="129" height="92">
+    <defs>
+        <filter id="a" x="0" y="0" width="129" height="92" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g style="filter:url(#a)">
+        <path data-name="note_frame_add" d="M37 0h74v74H37A37 37 0 0 1 0 37 37 37 0 0 1 37 0z" transform="translate(9 6)" style="fill:#c9a143"/>
+    </g>
+    <path d="M14229.49-5929c-2.3 0-4.166-2.621-4.166-5.85v-13.08h-.592c-2.064 0-3.734-2.15-3.734-4.8v-.141c0-2.65 1.67-4.8 3.734-4.8h5.389c.068-4.055 2.65-7.327 5.822-7.327s5.746 3.272 5.82 7.327h5.385c2.063 0 3.732 2.15 3.732 4.8v.141c0 2.651-1.67 4.8-3.732 4.8h-.588v13.08c0 3.229-1.871 5.85-4.172 5.85zm8.395-6.389c0 .951.547 1.724 1.229 1.724s1.223-.772 1.223-1.724v-12.541h-2.451zm-6.342 0c0 .951.549 1.724 1.229 1.724s1.225-.772 1.225-1.724v-12.541h-2.453zm1.248-22.284h6.3c-.068-2.161-1.457-3.89-3.145-3.89s-3.087 1.73-3.155 3.891z" transform="translate(-14171.439 5990)" style="fill:#fff;stroke:transparent;stroke-miterlimit:10"/>
+</svg>
