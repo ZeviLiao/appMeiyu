@@ -1,55 +1,62 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image} from 'react-native';
+import SvgUri from "expo-svg-uri";
 
 // create a component
 const MainPage = () => {
     return (
-        <View style={styles.container}>
-            <div>
-                <div className="logo">
-                    <Image style={{ width: 181, height: 42 }} source={require('../../assets/icon/logo.svg')} />
-                </div>
-                <div className="avatar">
-                    <span>name</span>
-                </div>
-                <ul className="left-menu">
-                    <li>
-                        <Image style={{ width: 32, height: 32 }} source={require('../../assets/icon/homeicon.svg')} />
-                        <span>首頁</span>
-                    </li>
-                    <li>
-                        <Image style={{ width: 32, height: 32 }} source={require('../../assets/icon/lessonIcon.svg')} />
-                        <span>備課</span>
-                    </li>
-                    <li>
-                        <Image style={{ width: 32, height: 32 }} source={require('../../assets/icon/videoIcon.svg')} />
-                        <span>師訓</span>
-                    </li>
-                    <li>
-                        <Image style={{ width: 32, height: 32 }} source={require('../../assets/icon/listIcon.svg')} />
-                        <span>學習清單</span>
-                    </li>
-                    <li>
-                        <Image style={{ width: 32, height: 32 }} source={require('../../assets/icon/toolIcon.svg')} />
-                        <span>教具</span>
-                    </li>
-                    <li>
-                        <Image style={{ width: 32, height: 32 }} source={require('../../assets/icon/musicIcon.svg')} />
-                        <span>音樂</span>
-                    </li>
-                </ul>
-                <div className="left-footer">
-                    <div className="setting">
-                        <Image style={{ width: 32, height: 32 }} source={require('../../assets/icon/settingIcon.svg')} />
-                        <span>設定</span>
-                    </div>
-                    <div className="help-center">
-                        <Image style={{ width: 32, height: 32 }} source={require('../../assets/icon/helpIcon.svg')} />
-                        <span>幫助</span>
-                    </div>
-                </div>
-            </div>
+        <View >
+            <View className="logo">
+                <Image width="181" height="42" source={require('../../assets/images/logo.png')} />
+            </View>
+            <View className="avatar">
+                <Text>name</Text>
+            </View>
+            <View className="left-menu">
+                <View>
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/homeIcon.svg')} />
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/homeIcon_l.svg')} />
+                    <Text>首頁</Text>
+                </View>
+                <View>
+                    <Image width="32" height="32" source={require('../../assets/images/Lesson_icon.png')} />
+                    <Image width="32" height="32" source={require('../../assets/images/Lesson_icon_l.png')} />
+                    <Text>備課</Text>
+                </View>
+                <View>
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/videoIcon.svg')} />
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/videoIcon_l.svg')} />
+                    <Text>師訓</Text>
+                </View>
+                <View>
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/listIcon.svg')} />
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/listIcon_l.svg')} />
+                    <Text>學習清單</Text>
+                </View>
+                <View>
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/toolIcon.svg')} />
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/toolIcon_l.svg')} />
+                    <Text>教具</Text>
+                </View>
+                <View>
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/musicIcon.svg')} />
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/musicIcon_l.svg')} />
+                    <Text>音樂</Text>
+                </View>
+            </View>
+            <View className="left-footer">
+                <View className="setting">
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/settingIcon.svg')} />
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/settingIcon_l.svg')} />
+                    <Text>設定</Text>
+                </View>
+                <View className="help-center">
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/helpIcon.svg')} />
+                    <SvgUri style={{ width: 32, height: 32 }} source={require('../../assets/icon/helpIcon_l.svg')} />
+                    <Text>幫助</Text>
+                </View>
+            </View>
         </View>
     );
 };
@@ -59,7 +66,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         // backgroundColor: '#2c3e50',
     },
 });
