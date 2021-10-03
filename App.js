@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
+import { Button, View, Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import MainPage from './src/pages/mainPage';
@@ -14,7 +14,7 @@ function HomeScreen({ navigation }) {
 
 function DetailsScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Text>Details Screen</Text>
       <Button
         title="Go to Details... again"
@@ -35,12 +35,25 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Home"
+        screenOptions={{
+          headerShown: false
+        }}>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Details" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+
+// define your styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2c3e50',
+  },
+});
 
 export default App;

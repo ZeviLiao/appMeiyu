@@ -1,12 +1,12 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image} from 'react-native';
+import { View, Text, StyleSheet, Image, SafeAreaView} from 'react-native';
 import SvgUri from "expo-svg-uri";
 
 // create a component
 const MainPage = () => {
     return (
-        <View >
+        <SafeAreaView style={styles.container}>
             <View className="logo">
                 <Image width="181" height="42" source={require('../../assets/images/logo.png')} />
             </View>
@@ -57,16 +57,18 @@ const MainPage = () => {
                     <Text>幫助</Text>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // flex: 1,
+        flexDirection: 'row',
+        flexWrap:'wrap',
+        // justifyContent: 'center',
+        // alignItems: 'center',
         // backgroundColor: '#2c3e50',
     },
 });
