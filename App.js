@@ -4,11 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import MainPage from './src/pages/mainPage';
 import TestPage from './src/pages/TestPage';
+import HtmlShow from './src/pages/htmlShowPage';
 
 function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-      <TestPage></TestPage>
+      <HtmlShow></HtmlShow>
     </SafeAreaView>
   );
 }
@@ -52,8 +53,9 @@ const styles = StyleSheet.create({
   container: {
     // flex: 1,
     // justifyContent: 'center',
-    // alignItems: 'center'
-    // backgroundColor: '#2c3e50',
+    // alignItems: 'center',
+    height: '100%',
+    backgroundColor: '#2c3e50',
   },
 });
 
