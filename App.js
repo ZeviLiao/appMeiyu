@@ -3,13 +3,15 @@ import { Button, View, Text, StyleSheet, SafeAreaView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // import MainPage from './src/pages/mainPage';
-import TestPage from './src/pages/TestPage';
-import HtmlShow from './src/pages/htmlShowPage';
+// import TestPage from './src/pages/TestPage';
+// import HtmlShow from './src/pages/htmlShowPage';
+// import MediaPlayerPage from './src/pages/media-player';
+import MediaPlayerPage from './src/pages/media-player2';
 
 function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
-      <HtmlShow></HtmlShow>
+      <MediaPlayerPage></MediaPlayerPage>
     </SafeAreaView>
   );
 }
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
     height: '100%',
-    backgroundColor: '#2c3e50',
+    // backgroundColor: '#2c3e50',
   },
 });
 
