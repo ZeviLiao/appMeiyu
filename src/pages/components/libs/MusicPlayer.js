@@ -1,5 +1,5 @@
 import { Alert } from "react-native";
-import { Audio } from "expo";
+import { Audio } from "expo-av";
 
 export default class MusicPlayer {
 
