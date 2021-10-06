@@ -3,6 +3,9 @@ PODS:
   - DoubleConversion (1.1.6)
   - EXApplication (3.2.0):
     - UMCore
+  - EXAV (9.2.3):
+    - ExpoModulesCore
+    - UMCore
   - EXConstants (11.0.2):
     - ExpoModulesCore
     - UMCore
@@ -226,6 +229,15 @@ PODS:
   - React-jsinspector (0.63.4)
   - react-native-safe-area-context (3.2.0):
     - React-Core
+  - react-native-slider (3.0.3):
+    - React
+  - react-native-video (5.1.1):
+    - React-Core
+    - react-native-video/Video (= 5.1.1)
+  - react-native-video/Video (5.1.1):
+    - React-Core
+  - react-native-webview (11.6.2):
+    - React-Core
   - React-RCTActionSheet (0.63.4):
     - React-Core/RCTActionSheetHeaders (= 0.63.4)
   - React-RCTAnimation (0.63.4):
@@ -333,6 +345,7 @@ PODS:
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXApplication (from `../node_modules/expo-application/ios`)
+  - EXAV (from `../node_modules/expo-av/ios`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
   - EXErrorRecovery (from `../node_modules/expo-error-recovery/ios`)
   - EXFileSystem (from `../node_modules/expo-file-system/ios`)
@@ -361,6 +374,9 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
+  - react-native-video (from `../node_modules/react-native-video`)
+  - react-native-webview (from `../node_modules/react-native-webview`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -389,6 +405,8 @@ EXTERNAL SOURCES:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   EXApplication:
     :path: "../node_modules/expo-application/ios"
+  EXAV:
+    :path: "../node_modules/expo-av/ios"
   EXConstants:
     :path: "../node_modules/expo-constants/ios"
   EXErrorRecovery:
@@ -441,6 +459,12 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-slider:
+    :path: "../node_modules/@react-native-community/slider"
+  react-native-video:
+    :path: "../node_modules/react-native-video"
+  react-native-webview:
+    :path: "../node_modules/react-native-webview"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -481,18 +505,19 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   DoubleConversion: cde416483dac037923206447da6e1454df403714
-  EXApplication: 9ff2a206009d6e55bca6c20b3f33d07986b51ef3
-  EXConstants: 4cb52b6d8f636c767104a44bf7db3873e9c01a6f
-  EXErrorRecovery: 404d827bc7d42f306c062d58a60b06afc4d082b3
-  EXFileSystem: 51bbd6efea7299a5c8bb31caab28907e43f1135f
-  EXFont: 9846ba1bb6f5f5aed44e20eea3ac70693323832d
-  EXImageLoader: d3531a3fe530b22925c19977cb53bb43e3821fe6
-  EXKeepAwake: f4105ef469be7b283f66ce2d7234bb71ac80cd26
-  ExpoModulesCore: 2734852616127a6c1fc23012197890a6f3763dc7
-  EXSplashScreen: f149e7ae7c5b412c03af491a10cca5bc760a75ec
-  EXStructuredHeaders: dc4b99d20ce14a5ec4d57a53743f0f95d7e82c65
-  EXUpdates: 3e2f9d651f412866fa217d9576d5b43b0b16b351
-  EXUpdatesInterface: b68e78b912a03fff7901a5f46ec200c45e3506a5
+  EXApplication: cdc959fd8b706b039621de03585375f11a066a47
+  EXAV: 7d75fec16f62d58a18676e663ad615d3f071eed4
+  EXConstants: d0969e870d37f824cc940751d8e7e3c50afe6063
+  EXErrorRecovery: e092308f1fad9030d298e5116585c2d79671c8e6
+  EXFileSystem: 8de34bd33ee5c76ba6b7e3e7ad4b30944b7e1601
+  EXFont: cb2350960187470ec54ff4668755abb74fde9839
+  EXImageLoader: 6494524ac2b99af4edcacada0e19c71600423e59
+  EXKeepAwake: db7607300383508b9ccf1da5bed4eab541f53e25
+  ExpoModulesCore: 730c7158b2fb179ba5921230e56a083a2304974d
+  EXSplashScreen: 2abae0d7b05ad7f15898d002859815e7b79c5d53
+  EXStructuredHeaders: 54d5461d99438f54ea9cabf1360d5b14344aa287
+  EXUpdates: d6235066c678541ae820e905fd400f592ddba0b8
+  EXUpdatesInterface: e4c4c7b7c49250314ad7137ffca09446c5b2c492
   FBLazyVector: 3bb422f41b18121b71783a905c10e58606f7dc3e
   FBReactNativeSpec: f2c97f2529dd79c083355182cc158c9f98f4bd6e
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
@@ -507,7 +532,10 @@ SPEC CHECKSUMS:
   React-jsi: a0418934cf48f25b485631deb27c64dc40fb4c31
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
-  react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
+  react-native-safe-area-context: e471852c5ed67eea4b10c5d9d43c1cebae3b231d
+  react-native-slider: b733e17fdd31186707146debf1f04b5d94aa1a93
+  react-native-video: 1574074179ecaf6a9dd067116c8f31bf9fec15c8
+  react-native-webview: 1f56115845c98f0a59dfbbac685797c014a821be
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0
@@ -521,12 +549,12 @@ SPEC CHECKSUMS:
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNReanimated: 6ec2460b9c6c8f3b1403bd0eaa12d359a98650e3
   RNScreens: 21b73c94c9117e1110a79ee0ee80c93ccefed8ce
-  UMAppLoader: 21af63390e55c82e037fb9752d93114a80ecf16e
-  UMCore: 573e838e2a2d5dfcb23506fd7d7db6dcc07c2fb3
-  UMReactNativeAdapter: 42b3c2c40a9ca466d114188d69609e812ea28537
-  UMTaskManagerInterface: 2be431101b73604e64fbfffcf759336f9d8fccbb
+  UMAppLoader: db2dae4bc3085e21f56d6d9cf7783d08c5999af4
+  UMCore: 9e0187ee8da41a0656e148e076ed322a745a9761
+  UMReactNativeAdapter: 68a2c86238c5b7b016af7367e6f0c402b347346e
+  UMTaskManagerInterface: 75462b0d8580ec91ae23f88a4f9271a3130efb02
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
 
-PODFILE CHECKSUM: eabeda91c5a6f6e66d9d75d7440dc4b3533e4387
+PODFILE CHECKSUM: 71f7d75e1ae2a748920b02950036b2980e477a2a
 
 COCOAPODS: 1.8.4
