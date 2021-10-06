@@ -1,36 +1,70 @@
-import * as React from 'react';
-import { Text, View, StyleSheet, Button, TouchableOpacity } from 'react-native';
-import { AudioPlayer } from './components/AudioPlayer';
+import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
+import MusicPlayer from './components/libs/MusicPlayer';
 
-export default function App() {
+import { list } from './components/config/list';
 
+export default class App extends React.Component {
 
-  return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: '#313131',
-        justifyContent: 'center',
-      }}>
-      <AudioPlayer
-        url={'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'}
-      />
-    </View>
-  );
+    MusicPlayer = null;
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            playing: false,
+            name: null,
+        };
+    }
+
+    componentWillMount() {
+        this.MusicPlayer = new MusicPlayer(list);
+    }
+
+    startStopPlay = () => {
+        this.MusicPlayer.startPlay(0, this.state.playing).then(() => {
+            this.setState({
+                playing: !this.state.playing
+            })
+        });
+    };
+
+    playNext = () => {
+        this.MusicPlayer.playNext().then(() => {
+            this.setState({
+                name: this.MusicPlayer.getCurrentItemName()
+            });
+        })
+    };
+
+    playPrev = () => {
+        this.MusicPlayer.playPrev().then(() => {
+            this.setState({
+                name: this.MusicPlayer.getCurrentItemName()
+            });
+        })
+    };
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text>{this.state.name || this.MusicPlayer.getCurrentItemName()}</Text>
+                <Button title={this.state.playing ? 'Stop' : 'Play'} onPress={this.startStopPlay}/>
+                <Button title='Next' onPress={this.playNext}>Next</Button>
+                <Button title='Prev' onPress={this.playPrev}>Prev</Button>
+                <Button title='Up' onPress={() => this.MusicPlayer.setSpeed(2.5)}/>
+                <Button title='Down' onPress={() => this.MusicPlayer.setSpeed(0.6)}/>
+            </View>
+        );
+    }
 }
 
-// define your styles
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: '#2c3e50',
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  video: {
-    width: '100%',
-    height: 300
-  }
 });
-
