@@ -1,70 +1,128 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import SeekBar from './components/SeekBar'
+import { Audio } from 'expo-av'
 
-import MusicPlayer from './components/libs/MusicPlayer';
+export default class PlayerScreen extends React.Component {
+  constructor(props) {
+    super(props);
 
-import { list } from './components/config/list';
-
-export default class App extends React.Component {
-
-    MusicPlayer = null;
-
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            playing: false,
-            name: null,
-        };
+    this.state = {
+      isPlaying: false,
+      playbackObject: null,
+      volume: 1.0,
+      isBuffering: false,
+      paused: true,
+      currentIndex: 0,
+      durationMillis: 1,
+      positionMillis: 0,
+      sliderValue: 0,
+      isSeeking: false,
     }
+  }
 
-    componentWillMount() {
-        this.MusicPlayer = new MusicPlayer(list);
+  async componentDidMount() {
+    try {
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: false,
+        interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+        playsInSilentModeIOS: true,
+        interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DUCK_OTHERS,
+        shouldDuckAndroid: true,
+        staysActiveInBackground: true,
+        playThroughEarpieceAndroid: true
+      })
+      this.loadAudio()
+    } catch (e) {
+      console.log(e)
     }
+  }
 
-    startStopPlay = () => {
-        this.MusicPlayer.startPlay(0, this.state.playing).then(() => {
-            this.setState({
-                playing: !this.state.playing
-            })
-        });
-    };
+  async loadAudio() {
+    const { currentIndex, isPlaying, volume } = this.state
 
-    playNext = () => {
-        this.MusicPlayer.playNext().then(() => {
-            this.setState({
-                name: this.MusicPlayer.getCurrentItemName()
-            });
-        })
-    };
+    try {
+      const playbackObject = new Audio.Sound()
+      const source = {
+        uri: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
+      }
 
-    playPrev = () => {
-        this.MusicPlayer.playPrev().then(() => {
-            this.setState({
-                name: this.MusicPlayer.getCurrentItemName()
-            });
-        })
-    };
+      const status = {
+        shouldPlay: isPlaying,
+        volume,
+      }
 
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text>{this.state.name || this.MusicPlayer.getCurrentItemName()}</Text>
-                <Button title={this.state.playing ? 'Stop' : 'Play'} onPress={this.startStopPlay}/>
-                <Button title='Next' onPress={this.playNext}>Next</Button>
-                <Button title='Prev' onPress={this.playPrev}>Prev</Button>
-                <Button title='Up' onPress={() => this.MusicPlayer.setSpeed(2.5)}/>
-                <Button title='Down' onPress={() => this.MusicPlayer.setSpeed(0.6)}/>
-            </View>
-        );
+      playbackObject.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
+      await playbackObject.loadAsync(source, status, true)
+      this.setState({ playbackObject })
+      var sliderValue = this.state.positionMillis / this.state.durationMillis
+    } catch (e) {
+      console.log(e)
     }
+  }
+
+  handlePlayPause = async () => {
+    const { isPlaying, playbackObject } = this.state
+    isPlaying ? await playbackObject.pauseAsync() : await playbackObject.playAsync()
+    this.setState({
+      isPlaying: !isPlaying
+    })
+  }
+
+  onPlaybackStatusUpdate = status => {
+    this.setState({
+      isBuffering: status.isBuffering,
+      durationMillis: status.durationMillis,
+      positionMillis: status.positionMillis,
+    })
+  }
+
+  render() {
+    const { item } = {
+      item: {
+        title: 'a',
+        text: 'abc',
+      }
+    }
+    return (
+      <View style={globalStyles.container}>
+        <View style={globalStyles.subHeader}>
+          <Text style={globalStyles.title}>{item.title}</Text>
+        </View>
+        <View style={styles.text}>
+          <Text>{item.text}</Text>
+        </View>
+        <SeekBar
+          durationMillis={this.state.durationMillis}
+          positionMillis={this.state.positionMillis}
+          sliderValue={this.state.sliderValue}
+        />
+        <TouchableOpacity
+          onPress={this.handlePlayPause}>
+          <Text style={styles.paragraph}>play</Text>
+        </TouchableOpacity>
+      </View>
+
+    )
+  }
 }
 
-const styles = StyleSheet.create({
+const globalStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  subHeader: {
+
+  },
+  title: {
+
+  }
+});
+
+const styles = StyleSheet.create({
+  text: {
+  }
 });
