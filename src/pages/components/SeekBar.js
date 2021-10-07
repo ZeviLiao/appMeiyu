@@ -9,20 +9,21 @@ function _getMMSSFromMillis(millis) {
     const minutes = Math.floor(totalSeconds / 60);
 
     const padWithZero = number => {
-      const string = number.toString();
-      if (number < 10) {
-        return '0' + string;
-      }
-      return string;
+        const string = number.toString();
+        if (number < 10) {
+            return '0' + string;
+        }
+        return string;
     };
     return padWithZero(minutes) + ':' + padWithZero(seconds);
-  }
+}
 
 // create a component
 const SeekBar = ({
     positionMillis,
     durationMillis,
-    sliderValue
+    sliderValue,
+    onSlidingComplete
 }) => {
     sliderValue = positionMillis / durationMillis
     return (
@@ -41,6 +42,7 @@ const SeekBar = ({
                 style={styles.slider}
                 minimumTrackTintColor='#fff'
                 maximumTrackTintColor='rgba(255, 255, 255, 0.14)'
+                onSlidingComplete={onSlidingComplete}
             />
         </View>
     );

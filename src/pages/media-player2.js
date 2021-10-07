@@ -69,6 +69,29 @@ export default class PlayerScreen extends React.Component {
     })
   }
 
+  // _onSeekSliderValueChange = (value) => {
+  //   console.log("SEEK SLIDER VALUE", value);
+  //   if (this.playbackObject != null && !this.isSeeking) {
+  //     this.isSeeking = true;
+  //     this.shouldPlayAtEndOfSeek = this.state.shouldPlay;
+  //     this.playbackObject.pauseAsync();
+  //   }
+  // };
+
+  _onSeekSliderSlidingComplete = async (value) => {
+    const { isPlaying, playbackObject } = this.state
+    if (this.playbackObject != null) {
+      this.isSeeking = false;
+      const seekPosition = value * this.state.durationMillis;
+      alert(seekPosition)
+      if (this.shouldPlayAtEndOfSeek) {
+        this.playbackObject.playFromPositionAsync(seekPosition);
+      } else {
+        this.playbackObject.setPositionAsync(seekPosition);
+      }
+    }
+  };
+
   onPlaybackStatusUpdate = status => {
     this.setState({
       isBuffering: status.isBuffering,
@@ -96,6 +119,7 @@ export default class PlayerScreen extends React.Component {
           durationMillis={this.state.durationMillis}
           positionMillis={this.state.positionMillis}
           sliderValue={this.state.sliderValue}
+          onSlidingComplete={this._onSeekSliderSlidingComplete}
         />
         <TouchableOpacity
           onPress={this.handlePlayPause}>
