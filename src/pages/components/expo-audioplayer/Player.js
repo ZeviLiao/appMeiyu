@@ -78,9 +78,11 @@ class Player extends Component {
       const playbackInstance = new Audio.Sound()
       // console.log('track');
       // console.log(this.props.tracks[currentIndex].audioUrl);
-      const source = {
-        uri: this.props.tracks[currentIndex].audioUrl
-      }
+      const source = require('../../../assets/hello.mp3')
+      
+      // {
+      //   uri: this.props.tracks[currentIndex].audioUrl
+      // }
 
       const status = {
         shouldPlay: isPlaying,
