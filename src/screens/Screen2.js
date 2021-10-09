@@ -3,10 +3,14 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
 // create a component
-function Screen2({ navigation }) {
+function Screen2({ navigation, route}) {
+
+    const {prodId, userInfo} = route.params;
     return (
         <View style={styles.container}>
             <Text>Screen2</Text>
+            <Text>{prodId}</Text>
+            <Text>{JSON.stringify(userInfo)}</Text>
             <Button
                 title="Go to Details... again"
                 onPress={() => navigation.push('Screen3')}
