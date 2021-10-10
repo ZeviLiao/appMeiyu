@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     buttonList: {
         // overflow: 'scroll',
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-evenly'
     },
     scrollView: {
         backgroundColor: 'pink',
