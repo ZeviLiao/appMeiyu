@@ -7,9 +7,11 @@ import HtmlViewer from './components/HtmlViewer';
 import HeaderTabs from './components/HeaderTabs';
 
 // create a component
-const AnnounceScreen = () => {
+const AnnounceScreen = (props) => {
 
     const [htmlData, setHtmlData] = useState('');
+    const { isMenu, isTabs } = props
+    // const { isMenu, isTabs } = {isMenu:true, isTabs:true}
 
     const showDocById = (id) => {
         setHtmlData('data' + id)
@@ -17,14 +19,15 @@ const AnnounceScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <LeftMenu style={styles.leftMenu}></LeftMenu>
+            {isMenu && <LeftMenu style={styles.leftMenu}></LeftMenu>}
             <View style={styles.mainContent}>
-                <ScreenHeader style={styles.header}>
-                    <Text>AnnounceScreen</Text>
+                <ScreenHeader >
+                    <Text style={styles.headerText}
+                    >AnnounceScreen</Text>
                 </ScreenHeader>
-                <HeaderTabs tabClick={(docId) => showDocById(docId)} />
+                {isTabs && <HeaderTabs tabClick={(docId) => showDocById(docId)} />}
                 <HtmlViewer>
-                    <Text  style={{fontSize:30}}>{htmlData}</Text>
+                    <Text style={{ fontSize: 30 }}>{htmlData}</Text>
                 </HtmlViewer>
             </View>
         </SafeAreaView>
@@ -48,9 +51,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'yellow',
         flex: 4,
     },
-    header: {
-        backgroundColor: 'lightblue',
-        fontSize: 50,
+    headerText: {
+        // backgroundColor: 'lightblue',
+        fontSize: 30,
     },
     buttonList: {
         flexDirection: 'row',

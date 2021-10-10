@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, Text, StyleSheet, View, Button } from 'react-native';
 import LeftMenu from './components/LeftMenu';
+import CardItemL1 from './components/CardItemL1';
 
 // create a component
 const MainScreen = () => {
@@ -19,10 +20,10 @@ const MainScreen = () => {
                     <Button title="Press me" onPress={() => Alert.alert('Simple Button pressed')} />
                 </View>
                 <View style={styles.buttonList}>
-                    <Text>Card</Text>
-                    <Text>Card</Text>
-                    <Text>Card</Text>
-                    <Text>Card</Text>
+                    <CardItemL1></CardItemL1>
+                    <CardItemL1></CardItemL1>
+                    <CardItemL1></CardItemL1>
+                    <CardItemL1></CardItemL1>
                 </View>
             </View>
         </SafeAreaView>

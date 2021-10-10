@@ -1,11 +1,12 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import MenuFooter from './MenuFooter';
 
 // create a component
-const ScreenHeader = (props) => {
+const ScreenHeader = ({ children, isMore }) => {
+
     const navigation = useNavigation();
 
     let navBack = () => {
@@ -15,13 +16,19 @@ const ScreenHeader = (props) => {
     return (
         <View style={styles.container}>
             <View style={styles.goBack}>
-                <TouchableOpacity onPress={()=> navBack()}>
+                <TouchableOpacity onPress={() => navBack()}>
                     <Text>back button</Text>
                 </TouchableOpacity>
             </View>
             <View
                 style={styles.header}
-            >{props.children}</View>
+            >{children}</View>
+            {isMore && (<View style={styles.more}>
+                <TouchableOpacity onPress={() => Alert.alert('more')}>
+                    <Text>o o o</Text>
+                </TouchableOpacity>
+            </View>)}
+
         </View>
 
     );
@@ -34,15 +41,20 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor: '#2c3e50',
-        height:50,
+        backgroundColor: '#efffef',
+        height: 50,
     },
     header: {
-        fontSize: 30,
+        fontSize: 50,
     },
-    goBack:{
+    goBack: {
         position: 'absolute',
-        left:0,
+        left: 20,
+
+    },
+    more: {
+        position: 'absolute',
+        right: 30,
 
     }
 });
