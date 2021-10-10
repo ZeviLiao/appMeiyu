@@ -18,14 +18,14 @@ const MenuFooter = () => {
 
     return (
         <View style={styles.container}>
-            <View>
+            <View style={styles.setupItem}>
                 <TouchableOpacity onPress={() => navTo('setup')}>
                     <Text>
                         setup 
                     </Text>
                 </TouchableOpacity>
             </View>
-            <View>
+            <View style={styles.setupItem}>
                 <TouchableOpacity onPress={() => navTo('setup2')}>
                     <Text>
                         setup 2
@@ -40,11 +40,19 @@ const MenuFooter = () => {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        // flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end'
+
         // justifyContent: 'center',
         // alignItems: 'center',
         // backgroundColor: '#2c3e50',
     },
+    setupItem:{
+        backgroundColor: '#efffff',
+        padding:10,
+        marginHorizontal:5,
+    }
 });
 
 //make this component available to the app
