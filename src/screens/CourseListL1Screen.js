@@ -1,36 +1,34 @@
 //import liraries
-import React, { Component } from 'react';
-import { SafeAreaView, Text, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native';
+import React, { Component, useState } from 'react';
+import { ScrollView, SafeAreaView, Text, StyleSheet, View, Button } from 'react-native';
 import LeftMenu from './components/LeftMenu';
+import ScreenHeader from './components/ScreenHeader';
+import HtmlViewer from './components/HtmlViewer';
+import HeaderTabs from './components/HeaderTabs';
+// import CardListItem from './components/CardListItem';
 import CardItem from './components/CardItem';
 
 // create a component
-const MainScreen = () => {
+const CourseListL1Screen = (props) => {
 
-    // const cardItemOpts = { // card 1
-    //     size: {
-    //         width: 219,
-    //         height: 219,
-    //     },
-    //     fontTitle: {
-    //         fontSize: 14,
-    //     },
-    //     fontDesc: {
-    //         fontSize: 14,
-    //     }
-    // }
-    const cardItemOpts = { // card 2
-        size: {
-            width: 163,
-            height: 181,
-        },
-        fontTitle: {
-            fontSize: 16,
-        },
-        fontDesc: {
-            fontSize: 13,
-        }
+    const [htmlData, setHtmlData] = useState('');
+    // const { isMenu, isTabs } = props
+    const { isMenu, isHeader, isTabs } = { isMenu: true, isHeader: false, isTabs: true }
+
+    const showDocById = (id) => {
+        setHtmlData('data' + id)
     }
+
+    const tabList = [
+        {
+            tabNo: 1,
+            tabLabel: 'Tab 01'
+        },
+        {
+            tabNo: 2,
+            tabLabel: 'Tab 02'
+        },
+    ]
 
     const mediaList = [
         {
@@ -106,43 +104,44 @@ const MainScreen = () => {
             mediaSrc: ''
         },
     ]
+
+    const cardItemOpts = { // card 1
+        size: {
+            width: 219,
+            height: 219,
+        },
+        fontTitle: {
+            fontSize: 14,
+        },
+        fontDesc: {
+            fontSize: 14,
+        }
+    }
+
     return (
         <SafeAreaView style={styles.container}>
-            <LeftMenu style={styles.leftMenu}></LeftMenu>
+            {isMenu && <LeftMenu style={styles.leftMenu}></LeftMenu>}
             <View style={styles.mainContent}>
-                <View style={styles.banner}>
-                    <Text>Banner</Text>
-                </View>
-                <View style={styles.buttonList}>
-                    <TouchableOpacity style={styles.styleLoginBtn}
-                        onPress={() => Alert.alert('Simple Button pressed')}>
-                        <Text>Press Here</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.styleLoginBtn}
-                        onPress={() => Alert.alert('Simple Button pressed')}>
-                        <Text>Press Here</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.styleLoginBtn}
-                        onPress={() => Alert.alert('Simple Button pressed')}>
-                        <Text>Press Here</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.styleLoginBtn}
-                        onPress={() => Alert.alert('Simple Button pressed')}>
-                        <Text>Press Here</Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.scrollView}>
-                    <ScrollView
-                        horizontal={true} >
+                {isHeader &&
+                    (<ScreenHeader >
+                        <Text style={styles.headerText}
+                        >CourseListL1Screen</Text>
+                    </ScreenHeader>)
+                }
+                {isTabs && <HeaderTabs 
+                tabList={tabList}
+                tabClick={(docId) => showDocById(docId)} />}
+                <ScrollView style={styles.listWrapper}>
+                    <View style={{ marginBottom: 40 }}>
                         {
-                            mediaList.map(m => (
-                                <CardItem key={m.id}
-                                    opts={cardItemOpts} course={m}></CardItem>
-                            ))
+                            mediaList.map(m => {
+                                return (
+                                    <CardItem key={m.id} opts={cardItemOpts} course={m} />
+                                )
+                            })
                         }
-                    </ScrollView>
-                </View>
-
+                    </View>
+                </ScrollView>
             </View>
         </SafeAreaView>
     );
@@ -158,33 +157,25 @@ const styles = StyleSheet.create({
         backgroundColor: 'pink',
     },
     leftMenu: {
-        backgroundColor: 'blue',
+        // backgroundColor: 'blue',
         flex: 1,
     },
     mainContent: {
         backgroundColor: 'yellow',
         flex: 4,
     },
-    banner: {
-        backgroundColor: 'lightblue',
-        height: '50%'
+    headerText: {
+        // backgroundColor: 'lightblue',
+        fontSize: 30,
     },
     buttonList: {
-        // overflow: 'scroll',
         flexDirection: 'row',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-around'
     },
-    scrollView: {
-        backgroundColor: 'pink',
-        // marginHorizontal: 20,
-    },
-    styleLoginBtn: {
-        padding: 15,
-        marginVertical: 15,
-        borderRadius: 5,
-        backgroundColor: 'lightblue'
-    },
+    listWrapper: {
+        padding: 40,
+    }
 });
 
 //make this component available to the app
-export default MainScreen;
+export default CourseListL1Screen;

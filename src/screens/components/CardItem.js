@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 
 // create a component
 const CardItem = (props) => {
-    let { opts } = props
+    let { opts, course } = props
     return (
         <View style={[styles.container, opts.size]}>
             <Image
@@ -13,8 +13,8 @@ const CardItem = (props) => {
                     uri: 'https://reactnative.dev/img/tiny_logo.png',
                 }}
             />
-            <Text style={opts.fontTitle}>Title</Text>
-            <Text style={opts.fontDesc}>description </Text>
+            <Text style={opts.fontTitle}>{course.title}</Text>
+            <Text style={opts.fontDesc}>{course.subTitle} </Text>
         </View>
     );
 };
