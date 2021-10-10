@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './screens/MainScreen';
 import AnnounceScreen from './screens/AnnounceScreen';
+import CourseListScreen from './screens/CourseListScreen';
 // import Screen1 from './screens/Screen1';
 // import Screen2 from './screens/Screen2';
 // import Screen3 from './screens/Screen3';
@@ -15,7 +16,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="MainScreen"
+      <Stack.Navigator initialRouteName="CourseListScreen"
         screenOptions={{
           headerShown: false,
           animationEnabled: false
@@ -23,6 +24,7 @@ function App() {
       >
         <Stack.Screen name="MainScreen" component={MainScreen} />
         <Stack.Screen name="AnnounceScreen" component={AnnounceScreen} />
+        <Stack.Screen name="CourseListScreen" component={CourseListScreen} />
         {/* <Stack.Screen name="Screen2" component={Screen2} />
         <Stack.Screen name="Screen3" component={Screen3} /> */}
       </Stack.Navigator>

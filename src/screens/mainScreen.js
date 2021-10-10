@@ -6,6 +6,31 @@ import CardItem from './components/CardItem';
 
 // create a component
 const MainScreen = () => {
+
+    // const cardItemOpts = { // card 1
+    //     size: {
+    //         width: 219,
+    //         height: 219,
+    //     },
+    //     fontTitle: {
+    //         fontSize: 14,
+    //     },
+    //     fontDesc: {
+    //         fontSize: 14,
+    //     }
+    // }
+    const cardItemOpts = { // card 2
+        size: {
+            width: 163,
+            height: 181,
+        },
+        fontTitle: {
+            fontSize: 16,
+        },
+        fontDesc: {
+            fontSize: 13,
+        }
+    }
     return (
         <SafeAreaView style={styles.container}>
             <LeftMenu style={styles.leftMenu}></LeftMenu>
@@ -34,15 +59,15 @@ const MainScreen = () => {
                 <View style={styles.scrollView}>
                     <ScrollView
                         horizontal={true} >
-                        <CardItem></CardItem>
-                        <CardItem></CardItem>
-                        <CardItem></CardItem>
-                        <CardItem></CardItem>
-                        <CardItem></CardItem>
-                        <CardItem></CardItem>
-                        <CardItem></CardItem>
-                        <CardItem></CardItem>
-                        <CardItem></CardItem>
+                        <CardItem opts={cardItemOpts}></CardItem>
+                        <CardItem opts={cardItemOpts}></CardItem>
+                        <CardItem opts={cardItemOpts}></CardItem>
+                        <CardItem opts={cardItemOpts}></CardItem>
+                        <CardItem opts={cardItemOpts}></CardItem>
+                        <CardItem opts={cardItemOpts}></CardItem>
+                        <CardItem opts={cardItemOpts}></CardItem>
+                        <CardItem opts={cardItemOpts}></CardItem>
+                        <CardItem opts={cardItemOpts}></CardItem>
                     </ScrollView>
                 </View>
 
