@@ -118,6 +118,19 @@ const CourseListL1Screen = (props) => {
         }
     }
 
+    // const cardItemOpts = { // card 2
+    //     size: {
+    //         width: 163,
+    //         height: 181,
+    //     },
+    //     fontTitle: {
+    //         fontSize: 16,
+    //     },
+    //     fontDesc: {
+    //         fontSize: 13,
+    //     }
+    // }
+
     return (
         <SafeAreaView style={styles.container}>
             {isMenu && <LeftMenu style={styles.leftMenu}></LeftMenu>}
@@ -131,12 +144,14 @@ const CourseListL1Screen = (props) => {
                 {isTabs && <HeaderTabs 
                 tabList={tabList}
                 tabClick={(docId) => showDocById(docId)} />}
-                <ScrollView style={styles.listWrapper}>
-                    <View style={{ marginBottom: 40 }}>
+                <ScrollView style={styles.listScrollWrapper}>
+                    <View style={styles.listWrapper}>
                         {
                             mediaList.map(m => {
                                 return (
-                                    <CardItem key={m.id} opts={cardItemOpts} course={m} />
+                                    <View style={[styles.listItem, (cardItemOpts.size.width < 200)? {width: '25%'}: {}]}>
+                                        <CardItem key={m.id} opts={cardItemOpts} course={m} />
+                                    </View>
                                 )
                             })
                         }
@@ -172,8 +187,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around'
     },
-    listWrapper: {
+    listScrollWrapper: {
         padding: 40,
+    },
+    listWrapper: {
+        flexDirection: 'row',
+        flexWrap:'wrap',
+        marginBottom: 60 ,
+    },
+    listItem:{
+        // backgroundColor: 'blue',
+        width:'33%',
+        // justifyContent: 'center',
+        alignItems: 'center',
     }
 });
 

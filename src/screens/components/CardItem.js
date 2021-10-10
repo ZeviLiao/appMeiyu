@@ -32,7 +32,17 @@ const styles = StyleSheet.create({
         // alignSelf: 'flex-start',
         margin: 20,
         // flexBasis: 200
-        borderRadius:10,
+        borderRadius: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+
     },
     img: {
         width: 50,
