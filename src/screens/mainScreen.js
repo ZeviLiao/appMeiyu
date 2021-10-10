@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { SafeAreaView, Text, StyleSheet, View, Button } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, View, Button, ScrollView } from 'react-native';
 import LeftMenu from './components/LeftMenu';
 import CardItemL1 from './components/CardItemL1';
 
@@ -19,12 +19,21 @@ const MainScreen = () => {
                     <Button title="Press me" onPress={() => Alert.alert('Simple Button pressed')} />
                     <Button title="Press me" onPress={() => Alert.alert('Simple Button pressed')} />
                 </View>
-                <View style={styles.buttonList}>
-                    <CardItemL1></CardItemL1>
-                    <CardItemL1></CardItemL1>
-                    <CardItemL1></CardItemL1>
-                    <CardItemL1></CardItemL1>
+                <View style={styles.scrollView}>
+                    <ScrollView
+                        horizontal={true} >
+                        <CardItemL1></CardItemL1>
+                        <CardItemL1></CardItemL1>
+                        <CardItemL1></CardItemL1>
+                        <CardItemL1></CardItemL1>
+                        <CardItemL1></CardItemL1>
+                        <CardItemL1></CardItemL1>
+                        <CardItemL1></CardItemL1>
+                        <CardItemL1></CardItemL1>
+                        <CardItemL1></CardItemL1>
+                    </ScrollView>
                 </View>
+
             </View>
         </SafeAreaView>
     );
@@ -33,28 +42,33 @@ const MainScreen = () => {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        flexDirection:'row',
+        flexDirection: 'row',
         flex: 1,
         // justifyContent: 'center',
         // alignItems: 'center',
         backgroundColor: 'pink',
     },
-    leftMenu:{
+    leftMenu: {
         backgroundColor: 'blue',
         flex: 1,
     },
-    mainContent:{
+    mainContent: {
         backgroundColor: 'yellow',
         flex: 4,
     },
-    banner:{
+    banner: {
         backgroundColor: 'lightblue',
-        height:'50%'
+        height: '50%'
     },
-    buttonList:{
-        flexDirection:'row',
+    buttonList: {
+        // overflow: 'scroll',
+        flexDirection: 'row',
         justifyContent: 'space-around'
-    }
+    },
+    scrollView: {
+        backgroundColor: 'pink',
+        // marginHorizontal: 20,
+    },
 });
 
 //make this component available to the app
