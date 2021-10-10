@@ -10,8 +10,27 @@ import HeaderTabs from './components/HeaderTabs';
 const AnnounceScreen = (props) => {
 
     const [htmlData, setHtmlData] = useState('');
-    const { isMenu, isTabs } = props
-    // const { isMenu, isTabs } = {isMenu:true, isTabs:true}
+    // const { isMenu, isTabs } = props
+    const { isMenu, isTabs } = {isMenu:true, isTabs:true}
+
+    const tabList = [
+        {
+            tabNo: 1,
+            tabLabel: 'Tab 01'
+        },
+        {
+            tabNo: 2,
+            tabLabel: 'Tab 02'
+        },
+        {
+            tabNo: 3,
+            tabLabel: 'Tab 03'
+        },
+        {
+            tabNo: 4,
+            tabLabel: 'Tab 04'
+        },
+    ]
 
     const showDocById = (id) => {
         setHtmlData('data' + id)
@@ -25,7 +44,9 @@ const AnnounceScreen = (props) => {
                     <Text style={styles.headerText}
                     >AnnounceScreen</Text>
                 </ScreenHeader>
-                {isTabs && <HeaderTabs tabClick={(docId) => showDocById(docId)} />}
+                {isTabs && <HeaderTabs 
+                tabList={tabList}
+                tabClick={(docId) => showDocById(docId)} />}
                 <HtmlViewer>
                     <Text style={{ fontSize: 30 }}>{htmlData}</Text>
                 </HtmlViewer>
