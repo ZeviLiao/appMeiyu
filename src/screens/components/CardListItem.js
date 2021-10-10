@@ -23,7 +23,7 @@ const CardItem = (props) => {
             </View>
             <TouchableOpacity style={styles.styleLoginBtn}
                 onPress={() => Alert.alert('Simple Button pressed')}>
-                <Text style={styles.buttonText}>Press Here</Text>
+                <Text style={styles.buttonText}>立即學習</Text>
             </TouchableOpacity>
         </View>
     );
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
         // marginVertical: 15,
         // borderRadius: 5,
-        backgroundColor: 'rgb(243,179,90)',
+        backgroundColor: '#FDA749',
         borderRadius: 18,
         height: 36,
     },
