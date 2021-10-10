@@ -1,30 +1,47 @@
 //import liraries
-import React, { Component, useState} from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import MenuFooter from './MenuFooter';
 
 // create a component
 const HeaderTabs = (props) => {
     let initialState = 1
-    const [tabInx, setTabInx] = useState(initialState)
+    const [tabNo, setTabNo] = useState(initialState)
 
-    const {tabClick} = props
+    const { tabClick } = props
 
-    const showTabContent = (tabName) => {
-        
+    const tabTouch = (tabNo) =>{
+        setTabNo(tabNo)
+        tabClick(tabNo)
     }
+
+    useEffect(() => {
+        tabClick(tabNo)
+    }, [])
+
+    // const showTabContent = (tabName) => {
+
+    // }
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => tabClick(1)}>
-                <Text style={[styles.textActive, styles.text]}>Tab 01</Text>
+            <TouchableOpacity
+                style={[styles.tabStyle, (tabNo === 1)? styles.tabACtive: {}]}
+                onPress={() => tabTouch(1)}>
+                <Text style={[styles.text]}>Tab 01</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => tabClick(2)}>
+            <TouchableOpacity
+                style={[styles.tabStyle, (tabNo === 2)? styles.tabACtive: {}]}
+                onPress={() => tabTouch(2)}>
                 <Text style={styles.text}>Tab 02</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => tabClick(3)}>
+            <TouchableOpacity
+                style={[styles.tabStyle, (tabNo === 3)? styles.tabACtive: {}]}
+                onPress={() => tabTouch(3)}>
                 <Text style={styles.text}>Tab 03</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => tabClick(4)}>
+            <TouchableOpacity
+                style={[styles.tabStyle, (tabNo === 4)? styles.tabACtive: {}]}
+                onPress={() => tabTouch(4)}>
                 <Text style={styles.text}>Tab 04</Text>
             </TouchableOpacity>
         </View>
@@ -38,7 +55,7 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         // alignItems: 'center',
         flexDirection: 'row',
-        backgroundColor: 'gray',
+        backgroundColor: '#efefff',
         justifyContent: 'space-around',
         height: 50,
     },
@@ -47,8 +64,13 @@ const styles = StyleSheet.create({
         lineHeight: 50
     },
     tabACtive: {
+        // backgroundColor: 'pink'
+        borderBottomWidth:5,
+        borderBottomColor:'pink'
+    },
+    tabStyle: {
         flex: 1,
-        backgroundColor: 'pink'
+        alignItems:'center'
     }
 });
 
