@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component, useState } from 'react';
-import { SafeAreaView, Text, StyleSheet, View, Button } from 'react-native';
+import { ScrollView, SafeAreaView, Text, StyleSheet, View, Button } from 'react-native';
 import LeftMenu from './components/LeftMenu';
 import ScreenHeader from './components/ScreenHeader';
 import HtmlViewer from './components/HtmlViewer';
@@ -37,6 +37,60 @@ const AnnounceScreen = (props) => {
             mediaType: 'music', // music
             mediaSrc: ''
         },
+        {
+            id: 3,
+            picUrl: '',
+            duration: '50:00',
+            title: '標題1',
+            subTitle: '副標1',
+            mediaType: 'video', // music
+            mediaSrc: ''
+        },
+        {
+            id: 4,
+            picUrl: '',
+            duration: '08:00',
+            title: '標題2',
+            subTitle: '副標2',
+            mediaType: 'music', // music
+            mediaSrc: ''
+        },
+        {
+            id: 5,
+            picUrl: '',
+            duration: '50:00',
+            title: '標題1',
+            subTitle: '副標1',
+            mediaType: 'video', // music
+            mediaSrc: ''
+        },
+        {
+            id: 6,
+            picUrl: '',
+            duration: '08:00',
+            title: '標題2',
+            subTitle: '副標2',
+            mediaType: 'music', // music
+            mediaSrc: ''
+        },
+        {
+            id: 7,
+            picUrl: '',
+            duration: '50:00',
+            title: '標題1',
+            subTitle: '副標1',
+            mediaType: 'video', // music
+            mediaSrc: ''
+        },
+        {
+            id: 8,
+            picUrl: '',
+            duration: '08:00',
+            title: '標題2',
+            subTitle: '副標2',
+            mediaType: 'music', // music
+            mediaSrc: ''
+        },
     ]
 
     return (
@@ -47,17 +101,18 @@ const AnnounceScreen = (props) => {
                     <Text style={styles.headerText}
                     >AnnounceScreen</Text>
                 </ScreenHeader>
-                <View style={styles.listWrapper}>
                 {isTabs && <HeaderTabs tabClick={(docId) => showDocById(docId)} />}
-                {
-                    mediaList.map(m => {
-                        return (
-                            <CardListItem media={m}/>
-                        )
-                    })
-                }
-                </View>
-                
+                <ScrollView style={styles.listWrapper}>
+                    <View style={{marginBottom: 40}}>
+                        {
+                            mediaList.map(m => {
+                                return (
+                                    <CardListItem key={m.id} media={m} />
+                                )
+                            })
+                        }
+                    </View>
+                </ScrollView>
             </View>
         </SafeAreaView>
     );
@@ -88,8 +143,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around'
     },
-    listWrapper:{
-        padding: 40
+    listWrapper: {
+        padding: 40,
     }
 });
 
