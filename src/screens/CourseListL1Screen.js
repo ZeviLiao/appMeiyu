@@ -141,16 +141,17 @@ const CourseListL1Screen = (props) => {
                         >CourseListL1Screen</Text>
                     </ScreenHeader>)
                 }
-                {isTabs && <HeaderTabs 
-                tabList={tabList}
-                tabClick={(docId) => showDocById(docId)} />}
+                {isTabs && <HeaderTabs
+                    tabList={tabList}
+                    tabClick={(docId) => showDocById(docId)} />}
                 <ScrollView style={styles.listScrollWrapper}>
                     <View style={styles.listWrapper}>
                         {
                             mediaList.map(m => {
                                 return (
-                                    <View style={[styles.listItem, (cardItemOpts.size.width < 200)? {width: '25%'}: {}]}>
-                                        <CardItem key={m.id} opts={cardItemOpts} course={m} />
+                                    <View key={m.id}
+                                        style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
+                                        <CardItem opts={cardItemOpts} course={m} />
                                     </View>
                                 )
                             })
@@ -192,12 +193,12 @@ const styles = StyleSheet.create({
     },
     listWrapper: {
         flexDirection: 'row',
-        flexWrap:'wrap',
-        marginBottom: 60 ,
+        flexWrap: 'wrap',
+        marginBottom: 60,
     },
-    listItem:{
+    listItem: {
         // backgroundColor: 'blue',
-        width:'33%',
+        width: '33%',
         // justifyContent: 'center',
         alignItems: 'center',
     }
