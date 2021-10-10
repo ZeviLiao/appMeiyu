@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import MenuFooter from './MenuFooter';
+import Logo from './Logo';
 
 // create a component
 const LeftMenu = () => {
@@ -12,68 +13,49 @@ const LeftMenu = () => {
         navigation.navigate(routeName)
     }
 
-    // const userInfo = {
-    //     name: 'zevi',
-    //     age: 18
-    // }
-
     return (
         <View style={styles.container}>
             <View>
+                <Logo></Logo>
                 <View>
-                    <TouchableOpacity onPress={() => navTo('Screen1')}>
-                        <Text>
-                            Screen 1
-                        </Text>
-                    </TouchableOpacity>
+                    <View>
+                        <TouchableOpacity onPress={() => navTo('Screen1')}>
+                            <Text>
+                                Screen 1
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TouchableOpacity onPress={() => navTo('Screen2')}>
+                            <Text>
+                                Screen 2
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TouchableOpacity onPress={() => navTo('Screen3')}>
+                            <Text>
+                                Screen 3
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TouchableOpacity onPress={() => navTo('Screen4')}>
+                            <Text>
+                                Screen 4
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View>
+                        <TouchableOpacity onPress={() => navTo('Screen5')}>
+                            <Text>
+                                Screen 5
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View>
-                    <TouchableOpacity onPress={() => navTo('Screen2')}>
-                        <Text>
-                            Screen 2
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-                <View>
-                    <TouchableOpacity onPress={() => navTo('Screen3')}>
-                        <Text>
-                            Screen 3
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-                <View>
-                    <TouchableOpacity onPress={() => navTo('Screen4')}>
-                        <Text>
-                            Screen 4
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-                <View>
-                    <TouchableOpacity onPress={() => navTo('Screen5')}>
-                        <Text>
-                            Screen 5
-                        </Text>
-                    </TouchableOpacity>
-                </View>
-                {/* <View>
-                    <TouchableOpacity onPress={navTo('Screen2', {
-                        prodId: 1,
-                        userInfo
-                    })}>
-                        <Text>
-                            Screen 2
-                        </Text>
-                    </TouchableOpacity>
-                </View> */}
-                {/* <View>
-                    <TouchableOpacity onPress={() => navTo('Screen3')}>
-                        <Text>
-                            Screen 3
-                        </Text>
-                    </TouchableOpacity>
-                </View> */}
             </View>
-            <MenuFooter style={styles.footer}></MenuFooter>
+            <MenuFooter></MenuFooter>
         </View>
     );
 };
@@ -84,11 +66,20 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-between',
         // alignItems: 'center',
-        // backgroundColor: '#2c3e50',
+        // alignSelf:'stretch',
+        backgroundColor: 'lightblue',
+        padding:5,
     },
-    footer:{
-        // position:'absolute',
-        // bottom:0,
+    logo:{
+        // textAlign:'center',
+        // width:'100%',
+        // flex: 1,
+        // alignItems: 'center',
+        // justifyContent: 'center',
+        // alignSelf:'center',
+        // backgroundColor: 'green',
+        // alignContent: 'center',
+        // marginHorizontal:30,
     }
 });
 
