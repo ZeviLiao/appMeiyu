@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
 // create a component
-const CardItemL1 = () => {
+const CardItem = () => {
     return (
         <View style={styles.container}>
             <Image
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default CardItemL1;
+export default CardItem;

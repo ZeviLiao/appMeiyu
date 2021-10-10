@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { SafeAreaView, Text, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native';
 import LeftMenu from './components/LeftMenu';
-import CardItemL1 from './components/CardItemL1';
+import CardItem from './components/CardItem';
 
 // create a component
 const MainScreen = () => {
@@ -34,15 +34,15 @@ const MainScreen = () => {
                 <View style={styles.scrollView}>
                     <ScrollView
                         horizontal={true} >
-                        <CardItemL1></CardItemL1>
-                        <CardItemL1></CardItemL1>
-                        <CardItemL1></CardItemL1>
-                        <CardItemL1></CardItemL1>
-                        <CardItemL1></CardItemL1>
-                        <CardItemL1></CardItemL1>
-                        <CardItemL1></CardItemL1>
-                        <CardItemL1></CardItemL1>
-                        <CardItemL1></CardItemL1>
+                        <CardItem></CardItem>
+                        <CardItem></CardItem>
+                        <CardItem></CardItem>
+                        <CardItem></CardItem>
+                        <CardItem></CardItem>
+                        <CardItem></CardItem>
+                        <CardItem></CardItem>
+                        <CardItem></CardItem>
+                        <CardItem></CardItem>
                     </ScrollView>
                 </View>
 
