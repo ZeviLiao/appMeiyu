@@ -8,9 +8,9 @@ const HeaderTabs = (props) => {
     let initialState = 1
     const [tabNo, setTabNo] = useState(initialState)
 
-    const { tabClick } = props
+    const { tabClick, tabList } = props
 
-    const tabTouch = (tabNo) =>{
+    const tabTouch = (tabNo) => {
         setTabNo(tabNo)
         tabClick(tabNo)
     }
@@ -19,31 +19,18 @@ const HeaderTabs = (props) => {
         tabClick(tabNo)
     }, [])
 
-    // const showTabContent = (tabName) => {
-
-    // }
     return (
         <View style={styles.container}>
-            <TouchableOpacity
-                style={[styles.tabStyle, (tabNo === 1)? styles.tabACtive: {}]}
-                onPress={() => tabTouch(1)}>
-                <Text style={[styles.text]}>Tab 01</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                style={[styles.tabStyle, (tabNo === 2)? styles.tabACtive: {}]}
-                onPress={() => tabTouch(2)}>
-                <Text style={styles.text}>Tab 02</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                style={[styles.tabStyle, (tabNo === 3)? styles.tabACtive: {}]}
-                onPress={() => tabTouch(3)}>
-                <Text style={styles.text}>Tab 03</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-                style={[styles.tabStyle, (tabNo === 4)? styles.tabACtive: {}]}
-                onPress={() => tabTouch(4)}>
-                <Text style={styles.text}>Tab 04</Text>
-            </TouchableOpacity>
+            {
+                tabList.map((t) => (
+                    <TouchableOpacity
+                        key={t.tabNo}
+                        style={[styles.tabStyle, (tabNo === t.tabNo) ? styles.tabACtive : {}]}
+                        onPress={() => tabTouch(t.tabNo)}>
+                        <Text style={[styles.text]}>{t.tabLabel}</Text>
+                    </TouchableOpacity>
+                ))
+            }
         </View>
     );
 };
@@ -65,12 +52,12 @@ const styles = StyleSheet.create({
     },
     tabACtive: {
         // backgroundColor: 'pink'
-        borderBottomWidth:5,
-        borderBottomColor:'pink'
+        borderBottomWidth: 5,
+        borderBottomColor: 'pink'
     },
     tabStyle: {
         flex: 1,
-        alignItems:'center'
+        alignItems: 'center'
     }
 });
 
