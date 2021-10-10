@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { SafeAreaView, Text, StyleSheet, View, Button, ScrollView } from 'react-native';
+import { SafeAreaView, Text, StyleSheet, View, TouchableOpacity, ScrollView } from 'react-native';
 import LeftMenu from './components/LeftMenu';
 import CardItemL1 from './components/CardItemL1';
 
@@ -14,10 +14,22 @@ const MainScreen = () => {
                     <Text>Banner</Text>
                 </View>
                 <View style={styles.buttonList}>
-                    <Button title="Press me" onPress={() => Alert.alert('Simple Button pressed')} />
-                    <Button title="Press me" onPress={() => Alert.alert('Simple Button pressed')} />
-                    <Button title="Press me" onPress={() => Alert.alert('Simple Button pressed')} />
-                    <Button title="Press me" onPress={() => Alert.alert('Simple Button pressed')} />
+                    <TouchableOpacity style={styles.styleLoginBtn}
+                        onPress={() => Alert.alert('Simple Button pressed')}>
+                        <Text>Press Here</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.styleLoginBtn}
+                        onPress={() => Alert.alert('Simple Button pressed')}>
+                        <Text>Press Here</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.styleLoginBtn}
+                        onPress={() => Alert.alert('Simple Button pressed')}>
+                        <Text>Press Here</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.styleLoginBtn}
+                        onPress={() => Alert.alert('Simple Button pressed')}>
+                        <Text>Press Here</Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.scrollView}>
                     <ScrollView
@@ -68,6 +80,12 @@ const styles = StyleSheet.create({
     scrollView: {
         backgroundColor: 'pink',
         // marginHorizontal: 20,
+    },
+    styleLoginBtn: {
+        padding: 15,
+        marginVertical: 15,
+        borderRadius: 5,
+        backgroundColor: 'lightblue'
     },
 });
 
