@@ -1,8 +1,8 @@
 //import liraries
 import React, { Component } from 'react';
 import { ScrollView, SafeAreaView, View, Text, StyleSheet } from 'react-native';
-// import AudioPlayer from './components/AudioPlayer';
-import VideoPlayer from './components/VideoPlayer';
+import AudioPlayer from './components/AudioPlayer';
+// import VideoPlayer from './components/VideoPlayer';
 import MediaInfo from './components/MediaInfo';
 
 // create a component
@@ -13,8 +13,8 @@ const MediaScreen = () => {
             <ScrollView>
                 <View style={styles.playerWrapper}>
                     <View style={styles.player}>
-                        <VideoPlayer></VideoPlayer>
-                        {/* <AudioPlayer></AudioPlayer> */}
+                        {/* <VideoPlayer></VideoPlayer> */}
+                        <AudioPlayer></AudioPlayer>
                     </View>
                 </View>
                 <View style={styles.mediaInfoWrapper}>
