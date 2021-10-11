@@ -7,6 +7,7 @@ export default function Line() {
             height: 1,
             backgroundColor: '#333',
             // alignSelf: 'stretch'
+            marginVertical: 20,
         }} />
     )
 }

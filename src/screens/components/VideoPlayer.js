@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
         // backgroundColor: '#2c3e50',
     },
     video:{
-        width:'100%',
-        height:300
+        width:656,
+        height:369
     }
 });
 

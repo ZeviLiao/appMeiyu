@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
+import { ScrollView, SafeAreaView, View, Text, StyleSheet } from 'react-native';
 // import AudioPlayer from './components/AudioPlayer';
 import VideoPlayer from './components/VideoPlayer';
 import MediaInfo from './components/MediaInfo';
@@ -8,17 +8,19 @@ import MediaInfo from './components/MediaInfo';
 // create a component
 const MediaScreen = () => {
     return (
+        //
         <SafeAreaView style={styles.container}>
-            {/* <AudioPlayer></AudioPlayer> */}
-            <View style={styles.playerWrapper}>
-                <View style={styles.player}>
-                    <VideoPlayer></VideoPlayer>
+            <ScrollView>
+                <View style={styles.playerWrapper}>
+                    <View style={styles.player}>
+                        <VideoPlayer></VideoPlayer>
+                        {/* <AudioPlayer></AudioPlayer> */}
+                    </View>
                 </View>
-            </View>
-            <View style={styles.mediaInfoWrapper}>
-                <MediaInfo></MediaInfo>
-            </View>
-
+                <View style={styles.mediaInfoWrapper}>
+                    <MediaInfo></MediaInfo>
+                </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
@@ -30,6 +32,8 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         // alignItems: 'center',
         // backgroundColor: '#2c3e50',
+        // marginBottom:20,
+        backgroundColor: '#efff33',
     },
     playerWrapper: {
         // width: '100%', // 47
@@ -40,16 +44,18 @@ const styles = StyleSheet.create({
         // height: 50,
     },
     player: {
-        width: '47%', // 47
-        
+        // width: '47%', // 47
         // flex:1,
         // justifyContent: 'center',
         // alignItems: 'center',
         // height: 50,
     },
-    mediaInfoWrapper:{
-        flex:1,
-        backgroundColor: '#efff00',
+    mediaInfoWrapper: {
+        padding: 37,
+        paddingVertical: 23,
+        flex: 1,
+        backgroundColor: 'lightyellow',
+
     }
 });
 

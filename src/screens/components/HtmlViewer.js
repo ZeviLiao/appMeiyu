@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         // backgroundColor: '#2c3e50',
     },
     content: {
-        // backgroundColor: 'blue',
+        backgroundColor: 'white',
         // fontSize: 30,
     }
 });
