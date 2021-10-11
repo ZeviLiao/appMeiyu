@@ -51,6 +51,7 @@ class Player extends Component {
     if (playbackInstance) {
       await playbackInstance.unloadAsync()
       currentIndex < this.props.tracks.length - 1 ? (currentIndex -= 1) : (currentIndex = 0)
+      if (currentIndex < 0)  currentIndex = this.props.tracks.length - 1
       this.setState({
         currentIndex
       })
@@ -64,6 +65,7 @@ class Player extends Component {
     if (playbackInstance) {
       await playbackInstance.unloadAsync()
       currentIndex < this.props.tracks.length - 1 ? (currentIndex += 1) : (currentIndex = 0)
+      if (currentIndex < this.props.tracks.length - 1)  currentIndex = 0
       this.setState({
         currentIndex
       })
