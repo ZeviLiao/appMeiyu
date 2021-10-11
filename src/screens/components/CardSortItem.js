@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 
 // create a component
 const CardSortItem = (props) => {
-    let { opts, course } = props
+    let { opts, course, sorting } = props
     return (
         <View style={[styles.container, opts.size]}>
 
@@ -17,7 +17,9 @@ const CardSortItem = (props) => {
 
             <Text style={opts.fontTitle}>{course.title}</Text>
             <Text style={opts.fontDesc}>{course.subTitle} </Text>
-            <View style={styles.moveIcon}><Text>三</Text></View>
+            {
+                (sorting) && <View style={styles.moveIcon}><Text>三</Text></View>
+            }
             <View style={styles.trashcan}><Text>口</Text></View>
         </View>
     );

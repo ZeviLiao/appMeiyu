@@ -1,6 +1,9 @@
 //import liraries
 import React, { Component, useState } from 'react';
-import { ScrollView, SafeAreaView, Text, StyleSheet, View, Button } from 'react-native';
+import {
+    ScrollView, SafeAreaView, Text, StyleSheet, View, Button,
+    TouchableOpacity
+} from 'react-native';
 import LeftMenu from './components/LeftMenu';
 import ScreenHeader from './components/ScreenHeader';
 import HtmlViewer from './components/HtmlViewer';
@@ -15,6 +18,7 @@ const CourseListL1Screen = (props) => {
 
     const [htmlData, setHtmlData] = useState('');
     const [dragging, setDragging] = useState(false)
+    const [sorting, setSorting] = useState(false)
     // const { isMenu, isTabs } = props
     const { isMenu, isHeader, isTabs } = { isMenu: true, isHeader: false, isTabs: true }
 
@@ -101,21 +105,7 @@ const CourseListL1Screen = (props) => {
         },
     ]
 
-    let initialState1 = [
-        { name: '1', key: 'one' },
-        { name: '2', key: 'two' },
-        { name: '3', key: 'three' },
-        { name: '4', key: 'four' },
-        { name: '5', key: 'five' },
-        { name: '6', key: 'six' },
-        { name: '7', key: 'seven' },
-        { name: '8', key: 'eight' },
-        { name: '9', key: 'night' },
-        { name: '0', key: 'zero' },
-    ]
-
     const [data, setData] = useState(initialState)
-
     const showDocById = (id) => {
         setHtmlData('data' + id)
     }
@@ -130,8 +120,6 @@ const CourseListL1Screen = (props) => {
             tabLabel: 'Tab 02'
         },
     ]
-
-
 
     const cardItemOpts = { // card 1
         size: {
@@ -159,6 +147,10 @@ const CourseListL1Screen = (props) => {
     //     }
     // }
 
+    const toggleSort = () => {
+        setSorting(!sorting)
+    }
+
     const render_item = (item) => {
         return (
             // <View
@@ -169,7 +161,7 @@ const CourseListL1Screen = (props) => {
             // </View>
             <View key={item.key}
                 style={[styles.listItem]}>
-                <CardSortItem opts={cardItemOpts} course={item} />
+                <CardSortItem opts={cardItemOpts} course={item} sorting />
             </View>
         );
     }
@@ -188,33 +180,37 @@ const CourseListL1Screen = (props) => {
                     tabList={tabList}
                     tabClick={(docId) => showDocById(docId)} />}
                 <View>
-                    <Text style={styles.sort}>sort</Text>
-                    {/* <ScrollView style={styles.listScrollWrapper}>
-                        <View style={styles.listWrapper}>
-                            {
-                                mediaList.map(m => {
-                                    return (
-                                        <View key={m.id}
-                                            style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
-                                            <CardSortItem opts={cardItemOpts} course={m} />
-                                        </View>
-                                    )
-                                })
-                            }
-                        </View>
-                    </ScrollView> */}
+                    <TouchableOpacity onPress={toggleSort}>
+                        <Text style={styles.sort}>{
+                            (sorting) ? 'done' : 'sort'
+                        }</Text>
+                    </TouchableOpacity>
+
                     <ScrollView style={styles.listScrollWrapper} scrollEnabled={!dragging}>
                         <View style={styles.listWrapper}>
-                            <DraggableGrid
-                                numColumns={3}
-                                renderItem={render_item}
-                                data={data}
-                                onDragStart={() => setDragging(true)}
-                                onDragRelease={(data) => {
-                                    setDragging(false)
-                                    setData(data);// need reset the props data sort after drag release
-                                }}
-                            />
+                            {
+                                sorting ? (
+                                    <DraggableGrid
+                                        numColumns={3}
+                                        renderItem={render_item}
+                                        data={data}
+                                        onDragStart={() => setDragging(true)}
+                                        onDragRelease={(data) => {
+                                            setDragging(false)
+                                            setData(data);// need reset the props data sort after drag release
+                                        }}
+                                    />
+                                ) : (
+                                    data.map(item => {
+                                        return (
+                                            <View key={item.id}
+                                                style={[styles.listItem]}>
+                                                <CardSortItem opts={cardItemOpts} course={item} sorting={false}/>
+                                            </View>
+                                        )
+                                    })
+                                )
+                            }
                         </View>
                     </ScrollView>
                 </View>
@@ -249,7 +245,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     listScrollWrapper: {
-        padding: 40,
+        margin: 40,
     },
     listWrapper: {
         flexDirection: 'row',
