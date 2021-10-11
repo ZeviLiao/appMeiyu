@@ -119,6 +119,11 @@ const CourseListL1Screen = (props) => {
             tabNo: 2,
             tabLabel: 'Tab 02'
         },
+        {
+            type: 'button',
+            tabNo: 3, 
+            tabLabel: '開始上課'
+        }
     ]
 
     const cardItemOpts = { // card 1

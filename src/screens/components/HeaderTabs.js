@@ -20,18 +20,28 @@ const HeaderTabs = (props) => {
     }, [])
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, (tabList.some(t => t.type)) ? { height: 80 } : {}]}>
             {
                 tabList.map((t) => (
-                    <TouchableOpacity
-                        key={t.tabNo}
-                        style={[styles.tabStyle, (tabNo === t.tabNo) ? styles.tabACtive : {}]}
-                        onPress={() => tabTouch(t.tabNo)}>
-                        <Text style={[styles.text]}>{t.tabLabel}</Text>
-                    </TouchableOpacity>
+                    (t.type) ? (
+                        <View style={styles.tabButton} key={t.tabNo}>
+                            <TouchableOpacity
+                                style={styles.styleLoginBtn}>
+                                <Text style={[styles.text]}>{t.tabLabel}</Text>
+                            </TouchableOpacity>
+                        </View>
+
+                    ) : (
+                        <TouchableOpacity
+                            key={t.tabNo}
+                            style={[styles.tabStyle, (tabNo === t.tabNo) ? styles.tabACtive : {}]}
+                            onPress={() => tabTouch(t.tabNo)}>
+                            <Text style={[styles.text]}>{t.tabLabel}</Text>
+                        </TouchableOpacity>
+                    )
                 ))
             }
-        </View>
+        </View >
     );
 };
 
@@ -47,8 +57,11 @@ const styles = StyleSheet.create({
         height: 50,
     },
     text: {
+        // flex: 1, 
         fontSize: 26,
-        lineHeight: 50
+        // lineHeight: 50,
+        // justifyContent:'flex-end',
+        // alignItems:'flex-end',
     },
     tabACtive: {
         // backgroundColor: 'pink'
@@ -57,8 +70,21 @@ const styles = StyleSheet.create({
     },
     tabStyle: {
         flex: 1,
-        alignItems: 'center'
-    }
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        paddingBottom: 7,
+    },
+    tabButton: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    styleLoginBtn: {
+        padding: 10,
+        paddingHorizontal: 20,
+        borderRadius: 5,
+        backgroundColor: 'lightblue',
+    },
 });
 
 //make this component available to the app
