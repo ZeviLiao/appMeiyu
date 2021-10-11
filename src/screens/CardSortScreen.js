@@ -9,10 +9,12 @@ import HeaderTabs from './components/HeaderTabs';
 import CardSortItem from './components/CardSortItem';
 import { DraggableGrid } from 'react-native-draggable-grid';
 
+
 // create a component
 const CourseListL1Screen = (props) => {
 
     const [htmlData, setHtmlData] = useState('');
+    const [dragging, setDragging] = useState(false)
     // const { isMenu, isTabs } = props
     const { isMenu, isHeader, isTabs } = { isMenu: true, isHeader: false, isTabs: true }
 
@@ -201,13 +203,15 @@ const CourseListL1Screen = (props) => {
                             }
                         </View>
                     </ScrollView> */}
-                    <ScrollView style={styles.listScrollWrapper}>
+                    <ScrollView style={styles.listScrollWrapper} scrollEnabled={!dragging}>
                         <View style={styles.listWrapper}>
                             <DraggableGrid
                                 numColumns={3}
                                 renderItem={render_item}
                                 data={data}
+                                onDragStart={() => setDragging(true)}
                                 onDragRelease={(data) => {
+                                    setDragging(false)
                                     setData(data);// need reset the props data sort after drag release
                                 }}
                             />
