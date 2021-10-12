@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 // create a component
@@ -14,14 +14,17 @@ const NodePage = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.goBack}>
-                <TouchableOpacity onPress={() => navBack()}>
-                    <Text>back button</Text>
-                </TouchableOpacity>
+            <View>
+                <View style={styles.goBack}>
+                    <TouchableOpacity onPress={() => navBack()}>
+                        <Text style={styles.text}>back button</Text>
+                    </TouchableOpacity>
+                </View>
+                <ScrollView style={styles.noteWrapper}>
+                    <Text style={styles.title}>NodePage</Text>
+                    <Text style={styles.desc}>NodePage</Text>
+                </ScrollView>
             </View>
-            <ScrollView>
-            <Text>NodePage</Text>
-            </ScrollView>
         </SafeAreaView>
     );
 };
@@ -35,10 +38,27 @@ const styles = StyleSheet.create({
         // backgroundColor: '#2c3e50',
     },
     goBack: {
-        position: 'absolute',
-        left: 20,
+        // position: 'absolute',
+        // left: 20,
+
+        backgroundColor: '#efffef'
 
     },
+    text: {
+        lineHeight: 50,
+        fontSize: 30
+    },
+    noteWrapper: {
+        padding: 30
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        marginBottom: 15,
+    },
+    desc: {
+        fontSize: 28,
+    }
 });
 
 //make this component available to the app
