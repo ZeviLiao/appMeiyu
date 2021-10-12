@@ -18,8 +18,8 @@ function pad(n, width, z = 0) {
 }
 
 const minutesAndSeconds = (position) => ([
-  pad(Math.floor(position / 60), 2),
-  pad(position % 60, 2),
+  pad(Math.floor(position / 1000 / 60), 2),
+  pad(Math.floor(position / 1000 % 60), 2),
 ]);
 
 const SeekBar = ({
@@ -32,6 +32,14 @@ const SeekBar = ({
   const remaining = minutesAndSeconds(trackLength - currentPosition);
   return (
     <View style={styles.container}>
+      <Slider
+        maximumValue={Math.max(trackLength, 1, currentPosition + 1)}
+        onValueChange={onSlidingStart}
+        onSlidingComplete={onSeek}
+        value={currentPosition}
+        style={styles.slider}
+        minimumTrackTintColor='rgba(0, 0, 0, 0.5)'
+        maximumTrackTintColor='rgba(220, 220, 220, 0.5)' />
       <View style={{ flexDirection: 'row' }}>
         <Text style={styles.text}>
           {elapsed[0] + ":" + elapsed[1]}
@@ -41,14 +49,6 @@ const SeekBar = ({
           {trackLength > 1 && "-" + remaining[0] + ":" + remaining[1]}
         </Text>
       </View>
-      <Slider
-        maximumValue={Math.max(trackLength, 1, currentPosition + 1)}
-        onValueChange={onSlidingStart}
-        onSlidingComplete={onSeek}
-        value={currentPosition}
-        style={styles.slider}
-        minimumTrackTintColor='rgba(0, 0, 0, 0.5)'
-        maximumTrackTintColor='rgba(220, 220, 220, 0.5)' />
     </View>
   );
 };
@@ -58,7 +58,7 @@ export default SeekBar;
 const styles = StyleSheet.create({
   slider: {
     // backgroundColor: 'red',
-    marginTop: -35,
+    marginTop: -15,
   },
   container: {
     paddingLeft: 16,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   //   backgroundColor: 'white',
   // },
   text: {
-    color: 'rgba(255, 255, 255, 0.72)',
+    color: '#333',
     fontSize: 12,
     textAlign: 'center',
   }

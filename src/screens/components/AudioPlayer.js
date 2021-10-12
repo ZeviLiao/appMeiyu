@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2c3e50',
   },
   audioPlayer: {
-    width: 338,
+    width: 398,
     height: 369,
   }
 });
