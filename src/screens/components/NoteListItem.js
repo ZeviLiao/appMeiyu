@@ -1,18 +1,21 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 // create a component
 const NoteListItem = (props) => {
-    let { note, navigation } = props
-    const navNotePage = (id) => {
+    // let { opts } = props
+    const navigation = useNavigation();
+    let { note } = props
+    const navNotePage = (id) =>{
         navigation.navigate('NotePage', {
             id
         })
     }
 
     return (
-        <TouchableOpacity onPress={() => navNotePage(note.id)}>
+        <TouchableOpacity onPress={()=>navNotePage(note.id)}>
             <View style={[styles.container]}>
                 <Text style={styles.title}>{note.title}</Text>
                 <Text style={styles.desc}>{note.subTitle} </Text>
@@ -33,7 +36,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         // flexDirection: 'row',
         width: 969,
-        height: 130,
+        height:130,
         // padding: 20,
         // alignSelf: 'flex-start',
         marginBottom: 20,
@@ -45,7 +48,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 25,
         fontWeight: 'bold',
-        marginBottom: 15,
+        marginBottom:15,
     },
     desc: {
         fontSize: 20
