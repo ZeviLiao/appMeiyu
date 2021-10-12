@@ -1,28 +1,25 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
 // create a component
-const NodePage = () => {
+const NodePage = ({navigation, route}) => {
 
-    const navigation = useNavigation();
+    const {id} = route.params;
 
-    let navBack = () => {
-        navigation.goBack()
-    }
+    let navBack = () => { navigation.goBack() }
 
     return (
         <SafeAreaView style={styles.container}>
             <View>
                 <View style={styles.goBack}>
                     <TouchableOpacity onPress={() => navBack()}>
-                        <Text style={styles.text}>back button</Text>
+                        <Text style={styles.text}> &nbsp; &lt;</Text>
                     </TouchableOpacity>
                 </View>
                 <ScrollView style={styles.noteWrapper}>
-                    <Text style={styles.title}>NodePage</Text>
-                    <Text style={styles.desc}>NodePage</Text>
+                    <Text style={styles.title}>NodePage {id}</Text>
+                    <Text style={styles.desc}>NodePage {id}</Text>
                 </ScrollView>
             </View>
         </SafeAreaView>
