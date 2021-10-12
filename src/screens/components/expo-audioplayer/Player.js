@@ -100,6 +100,13 @@ class Player extends Component {
   onPlaybackStatusUpdate = status => {
     // console.log('status updated');
     // console.log(status);
+    const { playbackInstance } = this.state;
+    if (status.durationMillis === status.positionMillis){
+      playbackInstance.stopAsync()
+      this.setState({
+        isPlaying: false
+      })
+    }
     if (status.isLoaded == true) {
       this.setState({
         totalLength: status.durationMillis,
