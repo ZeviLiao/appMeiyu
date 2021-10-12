@@ -242,10 +242,12 @@ const styles = StyleSheet.create({
     },
     scrollView: {
         margin: 40,
+        marginBottom: 20,
+
     },
     listWrapper: {
         alignSelf:'center',
-        marginBottom: 40,
+        // marginBottom: 20,
         width: 695,
     },
     noteListWrapper:{
