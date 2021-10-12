@@ -65,7 +65,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: 8,
+    // paddingTop: 8,
+    marginTop:-16,
   },
   playButton: {
     display: 'flex',
