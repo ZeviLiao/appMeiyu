@@ -8,6 +8,7 @@ import CourseListScreen from './screens/CourseListScreen';
 import CourseListL1Screen from './screens/CourseListL1Screen';
 import CardSortScreen from './screens/CardSortScreen';
 import MediaScreen from './screens/MediaScreen';
+import CourseFullScreen from './screens/CourseFullScreen';
 // import Screen1 from './screens/Screen1';
 // import Screen2 from './screens/Screen2';
 // import Screen3 from './screens/Screen3';
@@ -19,7 +20,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="MediaScreen"
+      <Stack.Navigator initialRouteName="CourseFullScreen"
         screenOptions={{
           headerShown: false,
           animationEnabled: false
@@ -28,7 +29,7 @@ function App() {
         <Stack.Screen name="MainScreen" component={MainScreen} />
         <Stack.Screen name="AnnounceScreen" component={AnnounceScreen} />
         <Stack.Screen name="CardSortScreen" component={CardSortScreen} />
-        <Stack.Screen name="MediaScreen" component={MediaScreen} />
+        <Stack.Screen name="CourseFullScreen" component={CourseFullScreen} />
         {/* <Stack.Screen name="Screen2" component={Screen2} />
         <Stack.Screen name="Screen3" component={Screen3} /> */}
       </Stack.Navigator>
