@@ -6,13 +6,13 @@ import ScreenHeader from './components/ScreenHeader';
 import HtmlViewer from './components/HtmlViewer';
 import TrainHeaderTabs from './components/TrainHeaderTabs';
 // import CardListItem from './components/CardListItem';
-import TrainCardItem from './components/TrainCardItem';
+import TrainCardL2Item from './components/TrainCardL2Item';
 
 // create a component
-const CourseListL2Screen = ({route}) => {
+const CourseListL2Screen = ({ route }) => {
 
-    const {courseL1} = route.params;
-    
+    const { courseL1 } = route.params;
+
     const [htmlData, setHtmlData] = useState('');
     // const { isMenu, isTabs } = props
     const { isMenu, isHeader, isTabs } = { isMenu: true, isHeader: true, isTabs: false }
@@ -107,35 +107,39 @@ const CourseListL2Screen = ({route}) => {
         },
     ]
 
-    const cardItemOpts = { // card 1
-        size: {
-            width: 219,
-            height: 219,
-        },
-        fontTitle: {
-            fontSize: 14,
-            color:'rgb(26,26,26)',
-            textAlign:'center',
-        },
-        fontDesc: {
-            fontSize: 14,
-            color:'rgb(26,26,26)',
-            textAlign:'center',
-        }
-    }
-
-    // const cardItemOpts = { // card 2
+    // const cardItemOpts = { // card 1
     //     size: {
-    //         width: 163,
-    //         height: 181,
+    //         width: 219,
+    //         height: 219,
     //     },
     //     fontTitle: {
-    //         fontSize: 16,
+    //         fontSize: 14,
+    //         color:'rgb(26,26,26)',
+    //         textAlign:'center',
     //     },
     //     fontDesc: {
-    //         fontSize: 13,
+    //         fontSize: 14,
+    //         color:'rgb(26,26,26)',
+    //         textAlign:'center',
     //     }
     // }
+
+    const cardItemOpts = { // card 2
+        size: {
+            width: 145,
+            height: 163,
+        },
+        fontTitle: {
+            fontSize: 13,
+            color: 'rgb(26,26,26)',
+            textAlign: 'center',
+        },
+        fontDesc: {
+            fontSize: 13,
+            color: 'rgb(26,26,26)',
+            textAlign: 'center',
+        }
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -157,7 +161,7 @@ const CourseListL2Screen = ({route}) => {
                                 return (
                                     <View key={m.id}
                                         style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
-                                        <TrainCardItem opts={cardItemOpts} course={m} />
+                                        <TrainCardL2Item opts={cardItemOpts} course={m} />
                                     </View>
                                 )
                             })

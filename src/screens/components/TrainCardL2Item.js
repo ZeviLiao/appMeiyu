@@ -11,11 +11,11 @@ const TrainCardL2Item = (props) => {
                 <Image
                     style={styles.img}
                     source={
-                        require('../../assets/images/openbook.png')
+                        require('../../assets/images/girlbook.png')
                     }
                 />
                 <View
-                    style={{ padding: 15 }}
+                    style={{ padding: 5 }}
                 >
                     <Text style={[{ marginBottom: 5 }, opts.fontTitle]}>{course.title}</Text>
                     <Text style={opts.fontDesc}>{course.subTitle} </Text>
@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
 
     },
     img: {
-        width: 219,
-        height: 147,
+        width: 145,
+        height: 118,
     },
     // title: {
     //     fontSize: 30,
