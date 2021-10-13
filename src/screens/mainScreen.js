@@ -69,7 +69,7 @@ const MainScreen = ({ navigation }) => {
         },
     ]
 
-    const mediaList = [
+    const newsList = [
         {
             id: 1,
             picUrl: '',
@@ -77,7 +77,8 @@ const MainScreen = ({ navigation }) => {
             title: '【專家講座】',
             subTitle: '宅家線上體驗新滋味，帶你在家不荒廢！讓您上課更便利、快速上手......',
             mediaType: 'video', // music
-            mediaSrc: ''
+            mediaSrc: '',
+            navName: 'AnnounceScreen',
         },
         {
             id: 2,
@@ -86,7 +87,8 @@ const MainScreen = ({ navigation }) => {
             title: '【New 活動】',
             subTitle: 'LaLa DoReMi平板冒險遊戲已上線囉！留下五星級評價即可兌換使用序號...',
             mediaType: 'music', // music
-            mediaSrc: ''
+            mediaSrc: '',
+            navName: 'AnnounceScreen',
         },
         {
             id: 3,
@@ -95,7 +97,8 @@ const MainScreen = ({ navigation }) => {
             title: '【New 課程】',
             subTitle: '2021實體繪本詢問度超高！結合理財觀念與音樂舞蹈多元快樂學習...',
             mediaType: 'video', // music
-            mediaSrc: ''
+            mediaSrc: '',
+            navName: 'AnnounceScreen',
         },
         {
             id: 4,
@@ -104,7 +107,8 @@ const MainScreen = ({ navigation }) => {
             title: '【New 教具】',
             subTitle: '萬聖節即將到來，把握招生好時機，搭配趣味道具一起參加萬聖節派對...',
             mediaType: 'music', // music
-            mediaSrc: ''
+            mediaSrc: '',
+            navName: 'AnnounceScreen',
         },
         // {
         //     id: 5,
@@ -161,13 +165,14 @@ const MainScreen = ({ navigation }) => {
                         btnList.map((btn, i) => (
                             <Button key={i} onPress={() =>
                                 navTo(btn.navName, {
-                                    headerTitle: btn.label
+                                    headerTitle: btn.label,
+                                    isMenu: true,
+                                    isTabs: true
                                 })}>
                                 {btn.label}
                             </Button>
                         ))
                     }
-
                 </View>
                 {/* <View style={styles.scrollView}>
                     <ScrollView
@@ -182,13 +187,19 @@ const MainScreen = ({ navigation }) => {
                 </View> */}
                 <View style={styles.buttonCardsWrapper}>
                     {
-                        mediaList.map(c => (
+                        newsList.map(c => (
                             <CardItem key={c.id}
-                                opts={cardItemOpts} course={c}></CardItem>
+                                opts={cardItemOpts} course={c}
+                                onPress={() =>
+                                    navTo(c.navName, {
+                                        headerTitle: c.title,
+                                        isMenu: true,
+                                        isMore: true
+                                    })}
+                            ></CardItem>
                         ))
                     }
                 </View>
-
             </View>
         </SafeAreaView>
     );

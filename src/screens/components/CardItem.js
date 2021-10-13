@@ -1,26 +1,28 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { TouchableOpacity, View, Text, StyleSheet, Image } from 'react-native';
 
 // create a component
 const CardItem = (props) => {
-    let { opts, course } = props
+    let { opts, course , onPress} = props
     return (
-        <View style={[styles.container, opts.size]}>
-            <Image
-                style={styles.img}
-                source={{
-                    uri: 'https://via.placeholder.com/168',
-                }}
-            />
-            <View
-                style={{ padding: 10 }}
-            >
-                <Text style={[{ marginBottom: 5 }, opts.fontTitle]}>{course.title}</Text>
-                <Text style={opts.fontDesc}>{course.subTitle} </Text>
-            </View>
+        <TouchableOpacity onPress={onPress}>
+            <View style={[styles.container, opts.size]}>
+                <Image
+                    style={styles.img}
+                    source={{
+                        uri: 'https://via.placeholder.com/168',
+                    }}
+                />
+                <View
+                    style={{ padding: 10 }}
+                >
+                    <Text style={[{ marginBottom: 5 }, opts.fontTitle]}>{course.title}</Text>
+                    <Text style={opts.fontDesc}>{course.subTitle} </Text>
+                </View>
 
-        </View>
+            </View>
+        </TouchableOpacity>
     );
 };
 

@@ -10,10 +10,8 @@ import HeaderTabs from './components/HeaderTabs';
 const AnnounceScreen = (props) => {
 
     const [htmlData, setHtmlData] = useState('');
-    // const { isMenu, isTabs } = props
-    const { isMenu, isTabs } = {isMenu:true, isTabs:true}
-
-    const {headerTitle} = props.route.params;
+    // const { isMenu, isTabs } = {isMenu:true, isTabs:true}
+    const { headerTitle, isMenu, isTabs, isMore } = props.route.params;
 
     const tabList = [
         {
@@ -42,12 +40,12 @@ const AnnounceScreen = (props) => {
         <SafeAreaView style={styles.container}>
             {isMenu && <LeftMenu style={styles.leftMenu}></LeftMenu>}
             <View style={styles.mainContent}>
-                <ScreenHeader >
+                <ScreenHeader isMore={isMore}>
                     {headerTitle}
                 </ScreenHeader>
-                {isTabs && <HeaderTabs 
-                tabList={tabList}
-                tabClick={(docId) => showDocById(docId)} />}
+                {isTabs && <HeaderTabs
+                    tabList={tabList}
+                    tabClick={(docId) => showDocById(docId)} />}
                 <HtmlViewer>
                     <Text style={{ fontSize: 30 }}>{htmlData}</Text>
                 </HtmlViewer>
