@@ -78,6 +78,18 @@ const styles = StyleSheet.create({
         // alignSelf:'stretch',
         backgroundColor: 'rgb(255,195,69)',
         padding: 5,
+        // borderWidth: 1,
+        borderTopRightRadius: 50,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+        
     },
     logo: {
         // textAlign:'center',
