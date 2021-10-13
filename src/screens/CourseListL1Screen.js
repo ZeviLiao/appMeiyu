@@ -9,7 +9,7 @@ import TrainHeaderTabs from './components/TrainHeaderTabs';
 import TrainCardItem from './components/TrainCardItem';
 
 // create a component
-const CourseListL1Screen = (props) => {
+const CourseListL1Screen = ({ navigation }) => {
 
     const [htmlData, setHtmlData] = useState('');
     // const { isMenu, isTabs } = props
@@ -112,13 +112,13 @@ const CourseListL1Screen = (props) => {
         },
         fontTitle: {
             fontSize: 14,
-            color:'rgb(26,26,26)',
-            textAlign:'center',
+            color: 'rgb(26,26,26)',
+            textAlign: 'center',
         },
         fontDesc: {
             fontSize: 14,
-            color:'rgb(26,26,26)',
-            textAlign:'center',
+            color: 'rgb(26,26,26)',
+            textAlign: 'center',
         }
     }
 
@@ -134,6 +134,10 @@ const CourseListL1Screen = (props) => {
     //         fontSize: 13,
     //     }
     // }
+
+    let navTo = (opts) => {
+        navigation.navigate('CourseListL2Screen', opts)
+    }
 
     return (
         <SafeAreaView style={styles.container}>
@@ -155,7 +159,9 @@ const CourseListL1Screen = (props) => {
                                 return (
                                     <View key={m.id}
                                         style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
-                                        <TrainCardItem opts={cardItemOpts} course={m} />
+                                        <TrainCardItem opts={cardItemOpts} course={m}
+                                            onPress={() => navTo({ courseL1: m })}
+                                        />
                                     </View>
                                 )
                             })

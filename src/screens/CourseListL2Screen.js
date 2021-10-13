@@ -9,11 +9,13 @@ import TrainHeaderTabs from './components/TrainHeaderTabs';
 import TrainCardItem from './components/TrainCardItem';
 
 // create a component
-const CourseListL2Screen = (props) => {
+const CourseListL2Screen = ({route}) => {
 
+    const {courseL1} = route.params;
+    
     const [htmlData, setHtmlData] = useState('');
     // const { isMenu, isTabs } = props
-    const { isMenu, isHeader, isTabs } = { isMenu: true, isHeader: false, isTabs: true }
+    const { isMenu, isHeader, isTabs } = { isMenu: true, isHeader: true, isTabs: false }
 
     const showDocById = (id) => {
         setHtmlData('data' + id)
@@ -142,7 +144,7 @@ const CourseListL2Screen = (props) => {
                 {isHeader &&
                     (<ScreenHeader >
                         <Text style={styles.headerText}
-                        >CourseListL2Screen</Text>
+                        >{courseL1.title}</Text>
                     </ScreenHeader>)
                 }
                 {isTabs && <TrainHeaderTabs
