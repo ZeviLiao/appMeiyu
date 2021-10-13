@@ -16,7 +16,9 @@ import { DraggableGrid } from 'react-native-draggable-grid';
 
 
 // create a component
-const CourseFullScreen = (props) => {
+const CourseFullScreen = ({ route }) => {
+
+    const { courseL3 } = route.params;
 
     const [htmlData, setHtmlData] = useState('');
     const [dragging, setDragging] = useState(false)
@@ -131,15 +133,15 @@ const CourseFullScreen = (props) => {
     const tabList = [
         {
             tabNo: 1,
-            tabLabel: 'Tab 01'
+            tabLabel: '教學教案'
         },
         {
             tabNo: 2,
-            tabLabel: 'Tab 02'
+            tabLabel: '師訓影片'
         },
         {
             tabNo: 3,
-            tabLabel: 'Tab 03'
+            tabLabel: '我的筆記'
         },
         {
             type: 'button',
@@ -181,7 +183,7 @@ const CourseFullScreen = (props) => {
                 {isHeader &&
                     (<ScreenHeader >
                         <Text style={styles.headerText}
-                        >CourseFullScreen</Text>
+                        >{courseL3.title}</Text>
                     </ScreenHeader>)
                 }
                 {isTabs && <HeaderTabs
@@ -201,14 +203,14 @@ const CourseFullScreen = (props) => {
                         </View>
                     )}
                     {(compName === 'noteList') && (<View style={styles.noteListWrapper}>
-                            {
-                                data.map(n => {
-                                    return (
-                                        <NoteListItem key={n.id} note={n} />
-                                    )
-                                })
-                            }
-                        </View>)}
+                        {
+                            data.map(n => {
+                                return (
+                                    <NoteListItem key={n.id} note={n} />
+                                )
+                            })
+                        }
+                    </View>)}
                 </ScrollView>
             </View>
         </SafeAreaView>
@@ -246,12 +248,12 @@ const styles = StyleSheet.create({
 
     },
     listWrapper: {
-        alignSelf:'center',
+        alignSelf: 'center',
         // marginBottom: 20,
         width: 695,
     },
-    noteListWrapper:{
-        alignSelf:'center',
+    noteListWrapper: {
+        alignSelf: 'center',
     }
 });
 
