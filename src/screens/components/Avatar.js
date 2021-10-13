@@ -8,7 +8,7 @@ const Avatar = () => {
     return (
         <View style={styles.container}>
             <View style={styles.avatar}>
-                <Badge style={styles.badge}></Badge>
+                <Badge size={15} style={styles.badge}></Badge>
             </View>
             <Text style={styles.name}>Sheena</Text>
             <Text style={styles.level}>Lv.1</Text>
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
     },
     badge: {
         position: 'absolute',
-        top: -3,
-        right: -10,
+        top: -2,
+        right: -7,
     },
     name: {
         fontSize: 26,
