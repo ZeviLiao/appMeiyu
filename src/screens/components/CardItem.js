@@ -10,7 +10,7 @@ const CardItem = (props) => {
             <Image
                 style={styles.img}
                 source={{
-                    uri: 'https://reactnative.dev/img/tiny_logo.png',
+                    uri: 'https://via.placeholder.com/168',
                 }}
             />
             <Text style={opts.fontTitle}>{course.title}</Text>
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
 
     },
     img: {
-        width: 50,
-        height: 50,
+        width:168,
+        height:153,
     },
     // title: {
     //     fontSize: 30,
