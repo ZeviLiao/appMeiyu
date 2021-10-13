@@ -8,14 +8,20 @@ import CourseListL1Screen from './screens/course/CourseListL1Screen';
 import CourseListL2Screen from './screens/course/CourseListL2Screen';
 import CourseViewerFullScreen from './screens/course/CourseViewerFullScreen';
 
-// import CourseMediaListL1Screen from './screens/media/CourseMediaListL1Screen';
 import CourseMediaListL2Screen from './screens/media/CourseMediaListL2Screen';
 import CourseMediaListL3Screen from './screens/media/CourseMediaListL3Screen';
 import CourseListScreen from './screens/media/CourseListScreen';
+import MediaScreen from './screens/MediaScreen';
+
+import AllCourseMediaListL1Screen from './screens/allCourse/CourseMediaListL1Screen';
+import AllCourseMediaListL2Screen from './screens/allCourse/CourseMediaListL2Screen';
+import AllCourseMediaListL3Screen from './screens/allCourse/CourseMediaListL3Screen';
+import AllCourseFullScreen from './screens/allCourse/AllCourseFullScreen';
 
 import CardSortScreen from './screens/CardSortScreen';
-import MediaScreen from './screens/MediaScreen';
 import NotePage from './screens/NotePage';
+
+
 // import Screen1 from './screens/Screen1';
 // import Screen2 from './screens/Screen2';
 // import Screen3 from './screens/Screen3';
@@ -44,6 +50,11 @@ function App() {
         <Stack.Screen name="CourseMediaListL3Screen" component={CourseMediaListL3Screen} />
         <Stack.Screen name="CourseListScreen" component={CourseListScreen} />
         <Stack.Screen name="MediaScreen" component={MediaScreen} />
+
+        <Stack.Screen name="AllCourseMediaListL1Screen" component={AllCourseMediaListL1Screen} />
+        <Stack.Screen name="AllCourseMediaListL2Screen" component={AllCourseMediaListL2Screen} />
+        <Stack.Screen name="AllCourseMediaListL3Screen" component={AllCourseMediaListL3Screen} />
+        <Stack.Screen name="AllCourseFullScreen" component={AllCourseFullScreen} />
 
         <Stack.Screen name="CardSortScreen" component={CardSortScreen} />
         <Stack.Screen name="NotePage" component={NotePage} />

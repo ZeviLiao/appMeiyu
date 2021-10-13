@@ -26,7 +26,7 @@ const LeftMenu = () => {
             iconName: 'homeIcon.svg', // homeIcon_l.svg
         },
         {
-            routeName: 'PrepareCourse',
+            routeName: 'AllCourseMediaListL1Screen', // PrepareCourse
             menuLabel: '備課',
             iconName: 'Lesson_icon.png',  // Lesson_icon_l.png
         },
