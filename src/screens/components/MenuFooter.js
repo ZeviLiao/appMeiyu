@@ -2,10 +2,25 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import MenuItem from './MenuItem';
 
 // create a component
 const MenuFooter = () => {
     const navigation = useNavigation();
+
+
+    const menuList = [
+        {
+            routeName: 'Setting',
+            menuLabel: '設定',
+            iconName: 'settingIcon.svg', // homeIcon_l.svg
+        },
+        {
+            routeName: 'HelpCenter',
+            menuLabel: '幫助',
+            iconName: 'helpIcon.svg',  // Lesson_icon_l.png
+        },
+    ]
 
     let navTo = (routeName) => {
         navigation.navigate(routeName)
@@ -13,21 +28,14 @@ const MenuFooter = () => {
 
     return (
         <View style={styles.container}>
-            <View style={styles.setupItem}>
-                <TouchableOpacity onPress={() => navTo('setup')}>
-                    <Text>
-                        setup 
-                    </Text>
-                </TouchableOpacity>
-            </View>
-            <View style={styles.setupItem}>
-                <TouchableOpacity onPress={() => navTo('setup2')}>
-                    <Text>
-                        setup 2
-                    </Text>
-                </TouchableOpacity>
-            </View>
-            
+                {menuList.map(menu => (
+                    <View style={styles.menuItem}
+                        key={menu.routeName}>
+                        <MenuItem {...menu} >
+                            {menu.menuLabel}
+                        </MenuItem>
+                    </View>)
+                )}
         </View>
     );
 };
@@ -37,17 +45,19 @@ const styles = StyleSheet.create({
     container: {
         // flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        marginBottom:10,
+        // marginLeft: 15,
+        // alignItems: 'center'
 
         // justifyContent: 'center',
         // alignItems: 'center',
         // backgroundColor: '#2c3e50',
     },
-    setupItem:{
-        backgroundColor: '#efffff',
-        padding:10,
-        marginHorizontal:5,
-    }
+    menuItem: {
+
+        marginHorizontal: 10,
+    },
 });
 
 //make this component available to the app

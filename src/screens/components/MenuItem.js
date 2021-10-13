@@ -24,6 +24,12 @@ const MenuItem = ({ children, navTo, routeName, iconName }) => {
             case 'toolIcon.svg':
                 icon = (active) ? require('../../assets/icon/toolIcon.svg') : require('../../assets/icon/toolIcon_l.svg');
                 break;
+            case 'settingIcon.svg':
+                icon = (active) ? require('../../assets/icon/settingIcon.svg') : require('../../assets/icon/settingIcon_l.svg');
+                break;
+            case 'helpIcon.svg':
+                icon = (active) ? require('../../assets/icon/helpIcon.svg') : require('../../assets/icon/helpIcon_l.svg');
+                break;
 
             default:
                 break;
