@@ -1,11 +1,12 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import SvgUri from "expo-svg-uri";
 
 // create a component
 const CardListItem = (props) => {
     // let { opts } = props
-    let { media, onPress} = props
+    let { media, onPress } = props
     return (
         <View style={[styles.container]}>
             <View style={{ flexDirection: 'row' }} >
@@ -18,10 +19,16 @@ const CardListItem = (props) => {
                 <View style={{ justifyContent: 'space-evenly' }}>
                     <Text style={styles.title}>{media.title}</Text>
                     <Text style={styles.desc}>{media.subTitle} </Text>
-                    <Text>Icon</Text>
+                    <View>
+                        {
+                            (media.mediaType === 'video') ?
+                                (<SvgUri style={{ width: 22, height: 22 }} source={require('../../assets/icon/video-icon.svg')} />) :
+                                (<SvgUri style={{ width: 22, height: 22 }} source={require('../../assets/icon/head-phone.svg')} />)
+                        }
+                    </View>
                 </View>
             </View>
-            <TouchableOpacity style={styles.styleLoginBtn}
+            <TouchableOpacity style={styles.stylePlayBtn}
                 onPress={onPress}>
                 <Text style={styles.buttonText}>立即學習</Text>
             </TouchableOpacity>
@@ -68,7 +75,7 @@ const styles = StyleSheet.create({
     desc: {
         fontSize: 16
     },
-    styleLoginBtn: {
+    stylePlayBtn: {
         paddingHorizontal: 15,
         // marginVertical: 15,
         // borderRadius: 5,

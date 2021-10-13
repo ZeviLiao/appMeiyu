@@ -10,12 +10,12 @@ const TrainMediaCardL2Item = (props) => {
             <View style={[styles.container, opts.size]}>
                 <Image
                     style={styles.img}
-                    source={
-                        require('../../assets/images/earth-pic.png')
-                    }
+                    source={{
+                        uri: 'https://via.placeholder.com/150'
+                    }}
                 />
-                <View style={{ padding: 5 }} >
-                    <Text style={[{ marginBottom: 5 }, opts.fontTitle]}>{course.title}</Text>
+                <View style={{ padding: 15 }} >
+                    <Text style={[{ marginBottom: 10 }, opts.fontTitle]}>{course.title}</Text>
                     <Text style={opts.fontDesc}>{course.subTitle} </Text>
                 </View>
 
@@ -45,13 +45,12 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-
         elevation: 5,
 
     },
     img: {
-        width: 145,
-        height: 118,
+        width: 208,
+        height: 117,
     },
     // title: {
     //     fontSize: 30,

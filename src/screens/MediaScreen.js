@@ -2,20 +2,25 @@
 import React, { Component } from 'react';
 import { ScrollView, SafeAreaView, View, Text, StyleSheet } from 'react-native';
 import AudioPlayer from './components/AudioPlayer';
-// import VideoPlayer from './components/VideoPlayer';
+import VideoPlayer from './components/VideoPlayer';
 import MediaInfo from './components/MediaInfo';
 import BackButton from './components/common/BackButton';
 
 // create a component
-const MediaScreen = () => {
+const MediaScreen = ({ route }) => {
+
+    const { media } = route.params;
     return (
         //
         <SafeAreaView style={styles.container}>
             <ScrollView>
                 <View style={styles.playerWrapper}>
                     <View style={styles.player}>
-                        {/* <VideoPlayer></VideoPlayer> */}
-                        <AudioPlayer></AudioPlayer>
+                        {
+                            (media.mediaType === 'video') ?
+                                (<VideoPlayer></VideoPlayer>) :
+                                (<AudioPlayer></AudioPlayer>)
+                        }
                     </View>
                 </View>
                 <View style={styles.mediaInfoWrapper}>

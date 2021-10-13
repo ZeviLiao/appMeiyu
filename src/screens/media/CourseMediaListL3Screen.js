@@ -126,18 +126,19 @@ const CourseMediaListL3Screen = ({ navigation, route }) => {
 
     const cardItemOpts = { // card 2
         size: {
-            width: 145,
-            height: 163,
+            width: 208,
+            height: 230,
         },
         fontTitle: {
-            fontSize: 13,
-            color: 'rgb(26,26,26)',
-            textAlign: 'center',
+            fontSize: 20,
+            fontWeight:'bold',
+            // color: 'rgb(26,26,26)',
+            // textAlign: 'center',
         },
         fontDesc: {
-            fontSize: 13,
-            color: 'rgb(26,26,26)',
-            textAlign: 'center',
+            fontSize: 15,
+            // color: 'rgb(26,26,26)',
+            // textAlign: 'center',
         }
     }
 
@@ -152,7 +153,7 @@ const CourseMediaListL3Screen = ({ navigation, route }) => {
                 {isHeader &&
                     (<ScreenHeader >
                         <Text style={styles.headerText}
-                        >{'abc' || courseL2.title}</Text>
+                        >{courseL2.title}</Text>
                     </ScreenHeader>)
                 }
                 {isTabs && <TrainHeaderTabs

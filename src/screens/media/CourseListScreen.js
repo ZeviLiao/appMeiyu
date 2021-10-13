@@ -10,7 +10,7 @@ import CardListItem from '../components/CardListItem';
 // create a component
 const AnnounceScreen = ({ navigation, route }) => {
 
-    const { courseL2 } = route.params;
+    const { courseL3 } = route.params;
 
     const [htmlData, setHtmlData] = useState('');
     // const { isMenu, isTabs } = props
@@ -105,7 +105,7 @@ const AnnounceScreen = ({ navigation, route }) => {
             <View style={styles.mainContent}>
                 <ScreenHeader >
                     <Text style={styles.headerText}
-                    >AnnounceScreen</Text>
+                    >{courseL3.title}</Text>
                 </ScreenHeader>
                 {isTabs && <HeaderTabs tabClick={(docId) => showDocById(docId)} />}
                 <ScrollView style={styles.listWrapper}>
@@ -114,7 +114,7 @@ const AnnounceScreen = ({ navigation, route }) => {
                             mediaList.map(m => {
                                 return (
                                     <CardListItem key={m.id} media={m}
-                                        onPress={() => navTo({ courseL2: m })}
+                                        onPress={() => navTo({ media: m })}
                                     />
                                 )
                             })
