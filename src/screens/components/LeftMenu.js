@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import {useRoute} from '@react-navigation/native';
 import MenuFooter from './MenuFooter';
 import Logo from './Logo';
 import MenuItem from './MenuItem';
@@ -9,7 +10,10 @@ import Avatar from './Avatar';
 
 // create a component
 const LeftMenu = () => {
+
     const navigation = useNavigation();
+    const route = useRoute();
+    // console.log(route.name);
 
     let navTo = (routeName) => {
         navigation.navigate(routeName)
@@ -17,7 +21,7 @@ const LeftMenu = () => {
 
     const menuList = [
         {
-            routeName: 'Home',
+            routeName: 'MainScreen',
             menuLabel: '首頁',
             iconName: 'homeIcon.svg', // homeIcon_l.svg
         },
@@ -55,6 +59,8 @@ const LeftMenu = () => {
                                 key={menu.routeName}>
                                 <MenuItem
                                     {...menu}
+                                    navTo={navTo}
+                                    active={route.name === menu.routeName}
                                 >
                                     {menu.menuLabel}
                                 </MenuItem>

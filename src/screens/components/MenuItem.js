@@ -4,9 +4,9 @@ import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import SvgUri from "expo-svg-uri";
 
 // create a component
-const MenuItem = ({ children, navTo, routeName, iconName }) => {
+const MenuItem = ({ children, navTo, routeName, iconName, active }) => {
 
-    let pickPicture = (iconName, active) => {
+    let pickPicture = (iconName) => {
         let icon;
         switch (iconName) {
             case 'homeIcon.svg':
@@ -37,7 +37,7 @@ const MenuItem = ({ children, navTo, routeName, iconName }) => {
         return icon;
     }
 
-    var icon = pickPicture(iconName, true)
+    var icon = pickPicture(iconName)
 
     return (
         <TouchableOpacity onPress={() => navTo(routeName)} style={styles.menuItem}>
