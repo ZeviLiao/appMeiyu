@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  ActivityIndicator,
   View,
   Text,
   StatusBar,
@@ -28,6 +29,7 @@ class Player extends Component {
       selectedTrack: 0,
       repeatOn: false,
       shuffleOn: false,
+      isLoading: false,
     };
   }
 
@@ -51,7 +53,7 @@ class Player extends Component {
     if (playbackInstance) {
       await playbackInstance.unloadAsync()
       currentIndex < this.props.tracks.length - 1 ? (currentIndex -= 1) : (currentIndex = 0)
-      if (currentIndex < 0)  currentIndex = this.props.tracks.length - 1
+      if (currentIndex < 0) currentIndex = this.props.tracks.length - 1
       this.setState({
         currentIndex
       })
@@ -65,7 +67,7 @@ class Player extends Component {
     if (playbackInstance) {
       await playbackInstance.unloadAsync()
       currentIndex < this.props.tracks.length - 1 ? (currentIndex += 1) : (currentIndex = 0)
-      if (currentIndex > this.props.tracks.length - 1)  currentIndex = 0
+      if (currentIndex > this.props.tracks.length - 1) currentIndex = 0
       this.setState({
         currentIndex
       })
@@ -77,6 +79,9 @@ class Player extends Component {
     const { currentIndex, isPlaying, volume } = this.state
 
     try {
+      this.setState({
+        isLoading: true
+      })
       const playbackInstance = new Audio.Sound()
       // console.log('track');
       // console.log(this.props.tracks[currentIndex].audioUrl);
@@ -94,6 +99,10 @@ class Player extends Component {
       this.setState({ playbackInstance })
     } catch (e) {
       console.log(e)
+    } finally {
+      this.setState({
+        isLoading: false
+      })
     }
   }
 
@@ -101,7 +110,7 @@ class Player extends Component {
     // console.log('status updated');
     // console.log(status);
     const { playbackInstance } = this.state;
-    if (status.durationMillis === status.positionMillis){
+    if (status.durationMillis === status.positionMillis) {
       playbackInstance.stopAsync()
       this.setState({
         isPlaying: false
@@ -171,25 +180,26 @@ class Player extends Component {
         {/* <Header message="Playing From Charts" /> */}
         {/* <TrackDetails title={track.title} subtitle={track.subtitle} /> */}
         {this.props.displayArt ? <AlbumArt url={track.albumArtUrl} /> : ''}
-        <SeekBar
-          onSeek={this.seek.bind(this)}
-          trackLength={this.state.totalLength}
-          onSlidingStart={this.sliding.bind(this)}
-          currentPosition={this.state.currentPosition}
-        />
-        <Controls
-          onPressRepeat={() => this.setState({ repeatOn: !this.state.repeatOn })}
-          repeatOn={this.state.repeatOn}
-          shuffleOn={this.state.shuffleOn}
-          forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
-          onPressShuffle={() => this.setState({ shuffleOn: !this.state.shuffleOn })}
-          onPressPlay={this.handlePlayPause}
-          onPressPause={this.handlePlayPause}
-          onBack={this.handlePreviousTrack}
-          onForward={this.handleNextTrack}
-          paused={!this.state.isPlaying}
-          displayBackForward={this.props.displayBackForward} />
-        {/* {video} */}
+        {
+          (this.state.isLoading ? (<ActivityIndicator />) : (<View><SeekBar
+            onSeek={this.seek.bind(this)}
+            trackLength={this.state.totalLength}
+            onSlidingStart={this.sliding.bind(this)}
+            currentPosition={this.state.currentPosition}
+          />
+            <Controls
+              onPressRepeat={() => this.setState({ repeatOn: !this.state.repeatOn })}
+              repeatOn={this.state.repeatOn}
+              shuffleOn={this.state.shuffleOn}
+              forwardDisabled={this.state.selectedTrack === this.props.tracks.length - 1}
+              onPressShuffle={() => this.setState({ shuffleOn: !this.state.shuffleOn })}
+              onPressPlay={this.handlePlayPause}
+              onPressPause={this.handlePlayPause}
+              onBack={this.handlePreviousTrack}
+              onForward={this.handleNextTrack}
+              paused={!this.state.isPlaying}
+              displayBackForward={this.props.displayBackForward} /></View>))
+        }
       </View>
     );
   }
