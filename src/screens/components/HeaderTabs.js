@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     text: {
         // flex: 1, 
         fontSize: 26,
+        color:'rgba(26,26,26,0.7)'
         // lineHeight: 50,
         // justifyContent:'flex-end',
         // alignItems:'flex-end',

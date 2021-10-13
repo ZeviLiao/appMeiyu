@@ -13,6 +13,8 @@ const AnnounceScreen = (props) => {
     // const { isMenu, isTabs } = props
     const { isMenu, isTabs } = {isMenu:true, isTabs:true}
 
+    const {headerTitle} = props.route.params;
+
     const tabList = [
         {
             tabNo: 1,
@@ -41,7 +43,7 @@ const AnnounceScreen = (props) => {
             {isMenu && <LeftMenu style={styles.leftMenu}></LeftMenu>}
             <View style={styles.mainContent}>
                 <ScreenHeader >
-                    AnnounceScreen
+                    {headerTitle}
                 </ScreenHeader>
                 {isTabs && <HeaderTabs 
                 tabList={tabList}

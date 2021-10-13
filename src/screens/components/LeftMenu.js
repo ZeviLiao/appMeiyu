@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import {useRoute} from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native';
 import MenuFooter from './MenuFooter';
 import Logo from './Logo';
 import MenuItem from './MenuItem';
@@ -50,7 +50,9 @@ const LeftMenu = () => {
     return (
         <View style={styles.container}>
             <View>
-                <Logo></Logo>
+                <View style={styles.logo}>
+                    <Logo></Logo>
+                </View>
                 <Avatar ></Avatar>
                 <View style={{ marginTop: 15, alignItems: 'center' }}>
                     <View >
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
         // alignSelf:'center',
         // backgroundColor: 'green',
         // alignContent: 'center',
-        // marginHorizontal:30,
+        marginTop: 40,
     }
 });
 

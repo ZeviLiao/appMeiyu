@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: 30,
-        // fontWeight: 'normal'
+        color:'rgba(26,26,26,0.7)'
     },
     goBack: {
         position: 'absolute',

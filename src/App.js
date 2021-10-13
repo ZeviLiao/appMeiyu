@@ -21,7 +21,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="AnnounceScreen"
+      <Stack.Navigator initialRouteName="MainScreen"
         screenOptions={{
           headerShown: false,
           animationEnabled: false

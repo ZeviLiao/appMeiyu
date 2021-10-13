@@ -6,7 +6,7 @@ import CardItem from './components/CardItem';
 import Button from './components/common/Button';
 
 // create a component
-const MainScreen = ({navigation}) => {
+const MainScreen = ({ navigation }) => {
 
     // const cardItemOpts = { // card 1
     //     size: {
@@ -49,23 +49,23 @@ const MainScreen = ({navigation}) => {
     const btnList = [
         {
             label: '授權須知',
-            navName: 'AuthPage',
+            navName: 'AnnounceScreen',
         },
         {
             label: '總部服務',
-            navName: 'ServiceCenter',
+            navName: 'AnnounceScreen', // ServiceCenter
         },
         {
             label: '教學工具',
-            navName: 'EduTools',
+            navName: 'AnnounceScreen', // EduTools
         },
         {
             label: '最新Q&A',
-            navName: 'NewQA',
+            navName: 'AnnounceScreen', // NewQA
         },
         {
             label: '線上培訓',
-            navName: 'OnlineTrain',
+            navName: 'AnnounceScreen', // OnlineTrain
         },
     ]
 
@@ -144,8 +144,8 @@ const MainScreen = ({navigation}) => {
         // },
     ]
 
-    let navTo = (routeName) => {
-        navigation.navigate(routeName)
+    let navTo = (routeName, opts) => {
+        navigation.navigate(routeName, opts)
     }
 
 
@@ -158,8 +158,11 @@ const MainScreen = ({navigation}) => {
                 </View>
                 <View style={styles.buttonList}>
                     {
-                        btnList.map((btn,i) => (
-                            <Button key={i} onPress={() => navTo(btn.navName)}>
+                        btnList.map((btn, i) => (
+                            <Button key={i} onPress={() =>
+                                navTo(btn.navName, {
+                                    headerTitle: btn.label
+                                })}>
                                 {btn.label}
                             </Button>
                         ))

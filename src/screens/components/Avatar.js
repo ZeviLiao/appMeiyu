@@ -41,9 +41,11 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 26,
         marginBottom:5,
+        color:'rgb(128,87,0)'
     },
     level: {
         fontSize: 15,
+        color:'rgb(128,87,0)'
     }
 });
 
