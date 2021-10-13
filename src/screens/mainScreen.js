@@ -42,7 +42,7 @@ const MainScreen = ({navigation}) => {
             fontSize: 14,
         },
         fontDesc: {
-            fontSize: 14,
+            fontSize: 12,
         }
     }
 
@@ -74,8 +74,8 @@ const MainScreen = ({navigation}) => {
             id: 1,
             picUrl: '',
             duration: '50:00',
-            title: '標題1',
-            subTitle: '副標1',
+            title: '【專家講座】',
+            subTitle: '宅家線上體驗新滋味，帶你在家不荒廢！讓您上課更便利、快速上手......',
             mediaType: 'video', // music
             mediaSrc: ''
         },
@@ -83,8 +83,8 @@ const MainScreen = ({navigation}) => {
             id: 2,
             picUrl: '',
             duration: '08:00',
-            title: '標題2',
-            subTitle: '副標2',
+            title: '【New 活動】',
+            subTitle: 'LaLa DoReMi平板冒險遊戲已上線囉！留下五星級評價即可兌換使用序號...',
             mediaType: 'music', // music
             mediaSrc: ''
         },
@@ -92,8 +92,8 @@ const MainScreen = ({navigation}) => {
             id: 3,
             picUrl: '',
             duration: '50:00',
-            title: '標題1',
-            subTitle: '副標1',
+            title: '【New 課程】',
+            subTitle: '2021實體繪本詢問度超高！結合理財觀念與音樂舞蹈多元快樂學習...',
             mediaType: 'video', // music
             mediaSrc: ''
         },
@@ -101,8 +101,8 @@ const MainScreen = ({navigation}) => {
             id: 4,
             picUrl: '',
             duration: '08:00',
-            title: '標題2',
-            subTitle: '副標2',
+            title: '【New 教具】',
+            subTitle: '萬聖節即將到來，把握招生好時機，搭配趣味道具一起參加萬聖節派對...',
             mediaType: 'music', // music
             mediaSrc: ''
         },
@@ -179,9 +179,9 @@ const MainScreen = ({navigation}) => {
                 </View> */}
                 <View style={styles.buttonCardsWrapper}>
                     {
-                        mediaList.map(m => (
-                            <CardItem key={m.id}
-                                opts={cardItemOpts} course={m}></CardItem>
+                        mediaList.map(c => (
+                            <CardItem key={c.id}
+                                opts={cardItemOpts} course={c}></CardItem>
                         ))
                     }
                 </View>

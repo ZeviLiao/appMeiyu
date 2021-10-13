@@ -13,8 +13,13 @@ const CardItem = (props) => {
                     uri: 'https://via.placeholder.com/168',
                 }}
             />
-            <Text style={opts.fontTitle}>{course.title}</Text>
-            <Text style={opts.fontDesc}>{course.subTitle} </Text>
+            <View
+                style={{ padding: 10 }}
+            >
+                <Text style={[{ marginBottom: 5 }, opts.fontTitle]}>{course.title}</Text>
+                <Text style={opts.fontDesc}>{course.subTitle} </Text>
+            </View>
+
         </View>
     );
 };
@@ -24,7 +29,7 @@ const styles = StyleSheet.create({
     container: {
         // flex: 1,
         // justifyContent: 'center',
-        alignItems: 'center',
+        // alignItems: 'center',
         backgroundColor: '#fefeee',
         marginHorizontal: 10,
         // width: 200,
@@ -45,8 +50,8 @@ const styles = StyleSheet.create({
 
     },
     img: {
-        width:168,
-        height:153,
+        width: 168,
+        height: 153,
     },
     // title: {
     //     fontSize: 30,
