@@ -64,7 +64,9 @@ const LeftMenu = () => {
                     </View>
                 </View>
             </View>
-            <MenuFooter></MenuFooter>
+            <View style={{ marginRight: 10 }}>
+                <MenuFooter></MenuFooter>
+            </View>
         </View>
     );
 };
@@ -79,7 +81,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(255,195,69)',
         padding: 5,
         // borderWidth: 1,
-        borderTopRightRadius: 50,
+        borderTopRightRadius: 30,
+        borderBottomRightRadius: 30,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -89,7 +92,6 @@ const styles = StyleSheet.create({
         shadowRadius: 3.84,
 
         elevation: 5,
-        
     },
     logo: {
         // textAlign:'center',
