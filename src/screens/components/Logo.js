@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 // create a component
@@ -21,9 +21,7 @@ const Logo = () => {
         <View style={styles.container}>
             <View style={styles.logo}>
                 <TouchableOpacity onPress={() => navHome()}>
-                    <View>
-                        <Text> logo </Text>
-                    </View>
+                    <Image width="181" height="42" source={require('../../assets/images/logo.png')} />
                 </TouchableOpacity>
             </View>
         </View>
@@ -39,16 +37,16 @@ const styles = StyleSheet.create({
 
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#aabbcc',
+        // backgroundColor: '#aabbcc',
     },
-    logo:{
+    logo: {
         width: 200,
         height: 50,
         // flex: 1,
         // flexDirection: 'row',
         // justifyContent: 'flex-end'
-        backgroundColor: '#efffff',
-        marginVertical:10,
+        // backgroundColor: '#efffcc',
+        marginVertical: 10,
     }
     // setupItem:{
     //     backgroundColor: '#efffff',

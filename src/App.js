@@ -21,7 +21,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="CourseFullScreen"
+      <Stack.Navigator initialRouteName="MainScreen"
         screenOptions={{
           headerShown: false,
           animationEnabled: false
