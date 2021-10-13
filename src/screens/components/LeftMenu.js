@@ -51,9 +51,9 @@ const LeftMenu = () => {
                 <View style={{ marginTop: 15, alignItems: 'center' }}>
                     <View >
                         {menuList.map(menu => (
-                            <View style={{ marginBottom: 23 }}>
+                            <View style={{ marginBottom: 23 }}
+                                key={menu.routeName}>
                                 <MenuItem
-                                    key={menu.routeName}
                                     {...menu}
                                 >
                                     {menu.menuLabel}

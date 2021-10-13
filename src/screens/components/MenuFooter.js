@@ -11,11 +11,6 @@ const MenuFooter = () => {
         navigation.navigate(routeName)
     }
 
-    // const userInfo = {
-    //     name: 'zevi',
-    //     age: 18
-    // }
-
     return (
         <View style={styles.container}>
             <View style={styles.setupItem}>
