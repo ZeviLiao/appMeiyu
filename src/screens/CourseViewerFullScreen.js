@@ -16,7 +16,7 @@ import { DraggableGrid } from 'react-native-draggable-grid';
 
 
 // create a component
-const CourseViewerFullScreen = ({route}) => {
+const CourseViewerFullScreen = ({ route }) => {
 
     const { courseL2 } = route.params;
 
@@ -117,14 +117,14 @@ const CourseViewerFullScreen = ({route}) => {
                         </View>
                     )}
                     {(compName === 'noteList') && (<View style={styles.noteListWrapper}>
-                            {
-                                data.map(n => {
-                                    return (
-                                        <NoteListItem key={n.id} note={n} />
-                                    )
-                                })
-                            }
-                        </View>)}
+                        {
+                            data.map(n => {
+                                return (
+                                    <NoteListItem key={n.id} note={n} />
+                                )
+                            })
+                        }
+                    </View>)}
                 </ScrollView>
             </View>
         </SafeAreaView>
@@ -162,12 +162,12 @@ const styles = StyleSheet.create({
 
     },
     listWrapper: {
-        alignSelf:'center',
+        alignSelf: 'center',
         // marginBottom: 20,
         width: 695,
     },
-    noteListWrapper:{
-        alignSelf:'center',
+    noteListWrapper: {
+        alignSelf: 'center',
     }
 });
 
