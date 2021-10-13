@@ -4,19 +4,19 @@ import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView } fr
 import BackButton from './components/common/BackButton';
 
 // create a component
-const NodePage = ({route}) => {
+const NodePage = ({ route }) => {
 
-    const {id} = route.params;
+    const { id } = route.params;
     return (
         <SafeAreaView style={styles.container}>
             <View>
-                <View style={styles.goBack}>
-                    <BackButton></BackButton>
-                </View>
                 <ScrollView style={styles.noteWrapper}>
                     <Text style={styles.title}>NodePage {id}</Text>
                     <Text style={styles.desc}>NodePage {id}</Text>
                 </ScrollView>
+                <View style={styles.goBack}>
+                    <BackButton></BackButton>
+                </View>
             </View>
         </SafeAreaView>
     );
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
     noteWrapper: {
-        padding: 30
+        padding: 60
     },
     title: {
         fontSize: 30,

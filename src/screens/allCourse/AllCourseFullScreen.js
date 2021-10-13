@@ -16,7 +16,7 @@ import { DraggableGrid } from 'react-native-draggable-grid';
 
 
 // create a component
-const CourseFullScreen = ({ route }) => {
+const AllCourseFullScreen = ({ navigation, route }) => {
 
     const { courseL3 } = route.params;
 
@@ -175,6 +175,10 @@ const CourseFullScreen = ({ route }) => {
     //         fontSize: 13,
     //     }
     // }
+    let navTo = (opts) => {
+        navigation.navigate('MediaScreen', opts)
+    }
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -196,7 +200,9 @@ const CourseFullScreen = ({ route }) => {
                             {
                                 data.map(m => {
                                     return (
-                                        <CardListItem key={m.id} media={m} />
+                                        <CardListItem key={m.id} media={m}
+                                        onPress={() => navTo({ media: m })}
+                                    />
                                     )
                                 })
                             }
@@ -231,7 +237,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     mainContent: {
-        backgroundColor: 'yellow',
+        // backgroundColor: 'yellow',
         flex: 4,
     },
     headerText: {
@@ -258,4 +264,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default CourseFullScreen;
+export default AllCourseFullScreen;
