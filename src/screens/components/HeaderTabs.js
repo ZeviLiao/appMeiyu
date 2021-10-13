@@ -36,7 +36,7 @@ const HeaderTabs = (props) => {
                             key={t.tabNo}
                             style={[styles.tabStyle, (tabNo === t.tabNo) ? styles.tabACtive : {}]}
                             onPress={() => tabTouch(t.tabNo)}>
-                            <Text style={[styles.text]}>{t.tabLabel}</Text>
+                            <Text style={[styles.text, (tabNo === t.tabNo) ? { color: 'rgb(255,108,0)' } : {}]}>{t.tabLabel}</Text>
                         </TouchableOpacity>
                     )
                 ))
@@ -52,9 +52,9 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         // alignItems: 'center',
         flexDirection: 'row',
-        backgroundColor: '#efefff',
+        backgroundColor: 'rgb(255,237,201)',
         justifyContent: 'space-around',
-        height: 50,
+        height: 89,
     },
     text: {
         // flex: 1, 
@@ -66,13 +66,15 @@ const styles = StyleSheet.create({
     tabACtive: {
         // backgroundColor: 'pink'
         borderBottomWidth: 5,
-        borderBottomColor: 'pink'
+        borderBottomColor: 'rgb(255,108,0)'
     },
     tabStyle: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'flex-end',
         paddingBottom: 7,
+        borderBottomWidth: 5,
+        borderBottomColor: 'rgb(255,237,201)'
     },
     tabButton: {
         flex: 1,

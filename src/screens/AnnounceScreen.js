@@ -16,19 +16,19 @@ const AnnounceScreen = (props) => {
     const tabList = [
         {
             tabNo: 1,
-            tabLabel: 'Tab 01'
+            tabLabel: '授權須知'
         },
         {
             tabNo: 2,
-            tabLabel: 'Tab 02'
+            tabLabel: '教室裝修'
         },
         {
             tabNo: 3,
-            tabLabel: 'Tab 03'
+            tabLabel: '教材說明'
         },
         {
             tabNo: 4,
-            tabLabel: 'Tab 04'
+            tabLabel: '課程介紹'
         },
     ]
 
@@ -41,8 +41,7 @@ const AnnounceScreen = (props) => {
             {isMenu && <LeftMenu style={styles.leftMenu}></LeftMenu>}
             <View style={styles.mainContent}>
                 <ScreenHeader >
-                    <Text style={styles.headerText}
-                    >AnnounceScreen</Text>
+                    AnnounceScreen
                 </ScreenHeader>
                 {isTabs && <HeaderTabs 
                 tabList={tabList}

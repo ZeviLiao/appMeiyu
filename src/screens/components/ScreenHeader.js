@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import MenuFooter from './MenuFooter';
+import SvgUri from "expo-svg-uri";
 
 // create a component
 const ScreenHeader = ({ children, isMore }) => {
@@ -17,12 +18,13 @@ const ScreenHeader = ({ children, isMore }) => {
         <View style={styles.container}>
             <View style={styles.goBack}>
                 <TouchableOpacity onPress={() => navBack()}>
-                    <Text>back button</Text>
+                    <SvgUri style={{ width: 24, height: 24 }}
+                        source={require('../../assets/icon/arrowBack.svg')} />
                 </TouchableOpacity>
             </View>
-            <View
-                style={styles.header}
-            >{children}</View>
+            <View>
+                <Text style={styles.header}>{children}</Text>
+            </View>
             {isMore && (<View style={styles.more}>
                 <TouchableOpacity onPress={() => Alert.alert('more')}>
                     <Text>o o o</Text>
@@ -41,16 +43,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#efffef',
+        backgroundColor: 'rgb(255, 214, 129)',
         height: 50,
     },
     header: {
-        fontSize: 50,
+        fontSize: 30,
+        // fontWeight: 'normal'
     },
     goBack: {
         position: 'absolute',
         left: 20,
-
     },
     more: {
         position: 'absolute',
