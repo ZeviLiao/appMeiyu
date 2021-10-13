@@ -8,7 +8,9 @@ import HeaderTabs from '../components/HeaderTabs';
 import CardListItem from '../components/CardListItem';
 
 // create a component
-const AnnounceScreen = (props) => {
+const AnnounceScreen = ({ navigation, route }) => {
+
+    const { courseL2 } = route.params;
 
     const [htmlData, setHtmlData] = useState('');
     // const { isMenu, isTabs } = props

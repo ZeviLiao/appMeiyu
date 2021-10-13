@@ -143,7 +143,7 @@ const CourseMediaListL2Screen = ({ navigation, route }) => {
 
     let navTo = (opts) => {
         // alert('not ready.')
-        navigation.navigate('CourseListScreen', opts)
+        navigation.navigate('CourseMediaListL3Screen', opts)
     }
 
     return (

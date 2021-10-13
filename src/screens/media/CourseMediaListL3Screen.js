@@ -11,8 +11,7 @@ import TrainMediaCardL3Item from '../components/TrainMediaCardL3Item';
 // create a component
 const CourseMediaListL3Screen = ({ navigation, route }) => {
 
-    // const { courseL2 } = route.params;
-    const { courseL2 } = {};
+    const { courseL2 } = route.params;
 
     const [htmlData, setHtmlData] = useState('');
     // const { isMenu, isTabs } = props
@@ -143,7 +142,7 @@ const CourseMediaListL3Screen = ({ navigation, route }) => {
     }
 
     let navTo = (opts) => {
-        navigation.navigate('MediaScreen', opts)
+        navigation.navigate('CourseListScreen', opts)
     }
 
     return (
@@ -167,7 +166,7 @@ const CourseMediaListL3Screen = ({ navigation, route }) => {
                                     <View key={m.id}
                                         style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
                                         <TrainMediaCardL3Item opts={cardItemOpts} course={m}
-                                            onPress={() => navTo({ courseL2: m })}
+                                            onPress={() => navTo({ courseL3: m })}
                                         />
                                     </View>
                                 )
