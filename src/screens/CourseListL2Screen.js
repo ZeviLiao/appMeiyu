@@ -9,7 +9,7 @@ import TrainHeaderTabs from './components/TrainHeaderTabs';
 import TrainCardL2Item from './components/TrainCardL2Item';
 
 // create a component
-const CourseListL2Screen = ({ route }) => {
+const CourseListL2Screen = ({ navigation, route }) => {
 
     const { courseL1 } = route.params;
 
@@ -141,6 +141,10 @@ const CourseListL2Screen = ({ route }) => {
         }
     }
 
+    let navTo = (opts) => {
+        navigation.navigate('CourseViewerFullScreen', opts)
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             {isMenu && <LeftMenu style={styles.leftMenu}></LeftMenu>}
@@ -161,7 +165,9 @@ const CourseListL2Screen = ({ route }) => {
                                 return (
                                     <View key={m.id}
                                         style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
-                                        <TrainCardL2Item opts={cardItemOpts} course={m} />
+                                        <TrainCardL2Item opts={cardItemOpts} course={m}
+                                            onPress={() => navTo({ courseL2: m })}
+                                        />
                                     </View>
                                 )
                             })

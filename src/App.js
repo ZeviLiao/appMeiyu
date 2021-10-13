@@ -7,9 +7,9 @@ import AnnounceScreen from './screens/AnnounceScreen';
 import CourseListScreen from './screens/CourseListScreen';
 import CourseListL1Screen from './screens/CourseListL1Screen';
 import CourseListL2Screen from './screens/CourseListL2Screen';
+import CourseViewerFullScreen from './screens/CourseViewerFullScreen';
 import CardSortScreen from './screens/CardSortScreen';
 import MediaScreen from './screens/MediaScreen';
-import CourseFullScreen from './screens/CourseFullScreen';
 import NotePage from './screens/NotePage';
 // import Screen1 from './screens/Screen1';
 // import Screen2 from './screens/Screen2';
@@ -32,9 +32,10 @@ function App() {
         <Stack.Screen name="AnnounceScreen" component={AnnounceScreen} />
         <Stack.Screen name="CourseListL1Screen" component={CourseListL1Screen} />
         <Stack.Screen name="CourseListL2Screen" component={CourseListL2Screen} />
+        <Stack.Screen name="CourseViewerFullScreen" component={CourseViewerFullScreen} />
+        {/* <Stack.Screen name="CourseFullScreen" component={CourseFullScreen} /> */}
         <Stack.Screen name="CourseListScreen" component={CourseListScreen} />
         <Stack.Screen name="CardSortScreen" component={CardSortScreen} />
-        <Stack.Screen name="CourseFullScreen" component={CourseFullScreen} />
         <Stack.Screen name="NotePage" component={NotePage} />
         {/* <Stack.Screen name="Screen2" component={Screen2} />
         <Stack.Screen name="Screen3" component={Screen3} /> */}
