@@ -1,26 +1,18 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import MenuFooter from './MenuFooter';
+import BackButton from './common/BackButton';
 import SvgUri from "expo-svg-uri";
 
 // create a component
 const ScreenHeader = ({ children, isMore }) => {
 
-    const navigation = useNavigation();
-
-    let navBack = () => {
-        navigation.goBack()
-    }
 
     return (
         <View style={styles.container}>
             <View style={styles.goBack}>
-                <TouchableOpacity onPress={() => navBack()}>
-                    <SvgUri style={{ width: 24, height: 24 }}
-                        source={require('../../assets/icon/arrowBack.svg')} />
-                </TouchableOpacity>
+                <BackButton></BackButton>
             </View>
             <View>
                 <Text style={styles.header}>{children}</Text>

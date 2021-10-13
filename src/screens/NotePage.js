@@ -1,21 +1,17 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
+import BackButton from './components/common/BackButton';
 
 // create a component
-const NodePage = ({navigation, route}) => {
+const NodePage = ({route}) => {
 
     const {id} = route.params;
-
-    let navBack = () => { navigation.goBack() }
-
     return (
         <SafeAreaView style={styles.container}>
             <View>
                 <View style={styles.goBack}>
-                    <TouchableOpacity onPress={() => navBack()}>
-                        <Text style={styles.text}> &nbsp; &lt;</Text>
-                    </TouchableOpacity>
+                    <BackButton></BackButton>
                 </View>
                 <ScrollView style={styles.noteWrapper}>
                     <Text style={styles.title}>NodePage {id}</Text>
@@ -35,10 +31,10 @@ const styles = StyleSheet.create({
         // backgroundColor: '#2c3e50',
     },
     goBack: {
-        // position: 'absolute',
-        // left: 20,
+        position: 'absolute',
+        left: 20,
 
-        backgroundColor: '#efffef'
+        // backgroundColor: '#efffef'
 
     },
     text: {

@@ -4,6 +4,7 @@ import { ScrollView, SafeAreaView, View, Text, StyleSheet } from 'react-native';
 import AudioPlayer from './components/AudioPlayer';
 // import VideoPlayer from './components/VideoPlayer';
 import MediaInfo from './components/MediaInfo';
+import BackButton from './components/common/BackButton';
 
 // create a component
 const MediaScreen = () => {
@@ -20,6 +21,9 @@ const MediaScreen = () => {
                 <View style={styles.mediaInfoWrapper}>
                     <MediaInfo></MediaInfo>
                 </View>
+                <View style={styles.goBack}>
+                    <BackButton></BackButton>
+                </View>
             </ScrollView>
         </SafeAreaView>
     );
@@ -33,14 +37,14 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         // backgroundColor: '#2c3e50',
         // marginBottom:20,
-        backgroundColor: '#efff33',
+        // backgroundColor: '#efff33',
     },
     playerWrapper: {
         // width: '100%', // 47
         // flex: 1,
         // justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#ef00ef',
+        // backgroundColor: '#ef00ef',
         // height: 50,
     },
     player: {
@@ -56,7 +60,11 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'lightyellow',
 
-    }
+    },
+    goBack: {
+        position: 'absolute',
+        left: 20,
+    },
 });
 
 //make this component available to the app
