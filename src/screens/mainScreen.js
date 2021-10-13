@@ -158,8 +158,8 @@ const MainScreen = ({navigation}) => {
                 </View>
                 <View style={styles.buttonList}>
                     {
-                        btnList.map(btn => (
-                            <Button onPress={() => navTo(btn.navName)}>
+                        btnList.map((btn,i) => (
+                            <Button key={i} onPress={() => navTo(btn.navName)}>
                                 {btn.label}
                             </Button>
                         ))
@@ -210,12 +210,14 @@ const styles = StyleSheet.create({
     },
     banner: {
         backgroundColor: 'lightblue',
-        height: '50%'
+        height: '50%',
+        marginBottom: 15,
     },
     buttonList: {
         // overflow: 'scroll',
         flexDirection: 'row',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
+        marginBottom: 15,
     },
     // scrollView: {
     //     backgroundColor: 'pink',

@@ -14,15 +14,15 @@ const Button = ({children , onPress}) => {
 
 // define your styles
 const styles = StyleSheet.create({
-    styleBtn: {
-        padding: 15,
-        marginVertical: 15,
-        borderRadius: 5,
-        backgroundColor: 'lightblue'
-    },
+    // styleBtn: {
+    //     padding: 15,
+    //     marginVertical: 15,
+    //     borderRadius: 5,
+    //     backgroundColor: 'lightblue'
+    // },
     styleHomeBtn: {
         padding: 15,
-        marginVertical: 15,
+        // marginVertical: 15,
         borderRadius: 5,
         backgroundColor: '#FCEECC'
     },
