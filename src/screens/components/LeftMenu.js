@@ -31,7 +31,7 @@ const LeftMenu = () => {
             iconName: 'Lesson_icon.png',  // Lesson_icon_l.png
         },
         {
-            routeName: 'Training',
+            routeName: 'CourseListL1Screen', // Training
             menuLabel: '師訓',
             iconName: 'videoIcon.svg', // videoIcon_l.svg
         },

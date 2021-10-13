@@ -9,7 +9,7 @@ import TrainHeaderTabs from './components/TrainHeaderTabs';
 import TrainCardItem from './components/TrainCardItem';
 
 // create a component
-const CourseListL1Screen = (props) => {
+const CourseListL2Screen = (props) => {
 
     const [htmlData, setHtmlData] = useState('');
     // const { isMenu, isTabs } = props
@@ -142,7 +142,7 @@ const CourseListL1Screen = (props) => {
                 {isHeader &&
                     (<ScreenHeader >
                         <Text style={styles.headerText}
-                        >CourseListL1Screen</Text>
+                        >CourseListL2Screen</Text>
                     </ScreenHeader>)
                 }
                 {isTabs && <TrainHeaderTabs
@@ -210,4 +210,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default CourseListL1Screen;
+export default CourseListL2Screen;
