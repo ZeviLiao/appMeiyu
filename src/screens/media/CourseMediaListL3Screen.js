@@ -1,19 +1,22 @@
 //import liraries
 import React, { Component, useState } from 'react';
 import { ScrollView, SafeAreaView, Text, StyleSheet, View, Button } from 'react-native';
-import LeftMenu from './components/LeftMenu';
-import ScreenHeader from './components/ScreenHeader';
-import HtmlViewer from './components/HtmlViewer';
-import TrainHeaderTabs from './components/TrainHeaderTabs';
-// import CardListItem from './components/CardListItem';
-import TrainCardItem from './components/TrainCardItem';
+import LeftMenu from '../components/LeftMenu';
+import ScreenHeader from '../components/ScreenHeader';
+import HtmlViewer from '../components/HtmlViewer';
+import TrainHeaderTabs from '../components/TrainHeaderTabs';
+// import CardListItem from '../components/CardListItem';
+import TrainMediaCardL3Item from '../components/TrainMediaCardL3Item';
 
 // create a component
-const CourseListL1Screen = ({ navigation }) => {
+const CourseMediaListL3Screen = ({ navigation, route }) => {
+
+    // const { courseL2 } = route.params;
+    const { courseL2 } = {};
 
     const [htmlData, setHtmlData] = useState('');
     // const { isMenu, isTabs } = props
-    const { isMenu, isHeader, isTabs } = { isMenu: true, isHeader: false, isTabs: true }
+    const { isMenu, isHeader, isTabs } = { isMenu: true, isHeader: true, isTabs: false }
 
     const showDocById = (id) => {
         setHtmlData('data' + id)
@@ -105,38 +108,42 @@ const CourseListL1Screen = ({ navigation }) => {
         },
     ]
 
-    const cardItemOpts = { // card 1
+    // const cardItemOpts = { // card 1
+    //     size: {
+    //         width: 219,
+    //         height: 219,
+    //     },
+    //     fontTitle: {
+    //         fontSize: 14,
+    //         color:'rgb(26,26,26)',
+    //         textAlign:'center',
+    //     },
+    //     fontDesc: {
+    //         fontSize: 14,
+    //         color:'rgb(26,26,26)',
+    //         textAlign:'center',
+    //     }
+    // }
+
+    const cardItemOpts = { // card 2
         size: {
-            width: 219,
-            height: 219,
+            width: 145,
+            height: 163,
         },
         fontTitle: {
-            fontSize: 14,
+            fontSize: 13,
             color: 'rgb(26,26,26)',
             textAlign: 'center',
         },
         fontDesc: {
-            fontSize: 14,
+            fontSize: 13,
             color: 'rgb(26,26,26)',
             textAlign: 'center',
         }
     }
 
-    // const cardItemOpts = { // card 2
-    //     size: {
-    //         width: 163,
-    //         height: 181,
-    //     },
-    //     fontTitle: {
-    //         fontSize: 16,
-    //     },
-    //     fontDesc: {
-    //         fontSize: 13,
-    //     }
-    // }
-
     let navTo = (opts) => {
-        navigation.navigate('CourseListL2Screen', opts)
+        navigation.navigate('MediaScreen', opts)
     }
 
     return (
@@ -146,7 +153,7 @@ const CourseListL1Screen = ({ navigation }) => {
                 {isHeader &&
                     (<ScreenHeader >
                         <Text style={styles.headerText}
-                        >CourseListL1Screen</Text>
+                        >{'abc' || courseL2.title}</Text>
                     </ScreenHeader>)
                 }
                 {isTabs && <TrainHeaderTabs
@@ -159,8 +166,8 @@ const CourseListL1Screen = ({ navigation }) => {
                                 return (
                                     <View key={m.id}
                                         style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
-                                        <TrainCardItem opts={cardItemOpts} course={m}
-                                            onPress={() => navTo({ courseL1: m })}
+                                        <TrainMediaCardL3Item opts={cardItemOpts} course={m}
+                                            onPress={() => navTo({ courseL2: m })}
                                         />
                                     </View>
                                 )
@@ -216,4 +223,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default CourseListL1Screen;
+export default CourseMediaListL3Screen;

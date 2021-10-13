@@ -1,11 +1,11 @@
 //import liraries
 import React, { Component, useState } from 'react';
 import { ScrollView, SafeAreaView, Text, StyleSheet, View, Button } from 'react-native';
-import LeftMenu from './components/LeftMenu';
-import ScreenHeader from './components/ScreenHeader';
-import HtmlViewer from './components/HtmlViewer';
-import HeaderTabs from './components/HeaderTabs';
-import CardListItem from './components/CardListItem';
+import LeftMenu from '../components/LeftMenu';
+import ScreenHeader from '../components/ScreenHeader';
+import HtmlViewer from '../components/HtmlViewer';
+import HeaderTabs from '../components/HeaderTabs';
+import CardListItem from '../components/CardListItem';
 
 // create a component
 const AnnounceScreen = (props) => {
@@ -93,6 +93,10 @@ const AnnounceScreen = (props) => {
         },
     ]
 
+    let navTo = (opts) => {
+        navigation.navigate('MediaScreen', opts)
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             {isMenu && <LeftMenu style={styles.leftMenu}></LeftMenu>}
@@ -103,11 +107,13 @@ const AnnounceScreen = (props) => {
                 </ScreenHeader>
                 {isTabs && <HeaderTabs tabClick={(docId) => showDocById(docId)} />}
                 <ScrollView style={styles.listWrapper}>
-                    <View style={{marginBottom: 40}}>
+                    <View style={{ marginBottom: 40 }}>
                         {
                             mediaList.map(m => {
                                 return (
-                                    <CardListItem key={m.id} media={m} />
+                                    <CardListItem key={m.id} media={m}
+                                        onPress={() => navTo({ courseL2: m })}
+                                    />
                                 )
                             })
                         }

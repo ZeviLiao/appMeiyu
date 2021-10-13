@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 // create a component
 const CardListItem = (props) => {
     // let { opts } = props
-    let { media } = props
+    let { media, onPress} = props
     return (
         <View style={[styles.container]}>
             <View style={{ flexDirection: 'row' }} >
@@ -22,7 +22,7 @@ const CardListItem = (props) => {
                 </View>
             </View>
             <TouchableOpacity style={styles.styleLoginBtn}
-                onPress={() => Alert.alert('Simple Button pressed')}>
+                onPress={onPress}>
                 <Text style={styles.buttonText}>立即學習</Text>
             </TouchableOpacity>
         </View>

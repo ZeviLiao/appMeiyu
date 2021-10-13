@@ -4,10 +4,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainScreen from './screens/MainScreen';
 import AnnounceScreen from './screens/AnnounceScreen';
-import CourseListScreen from './screens/CourseListScreen';
-import CourseListL1Screen from './screens/CourseListL1Screen';
-import CourseListL2Screen from './screens/CourseListL2Screen';
-import CourseViewerFullScreen from './screens/CourseViewerFullScreen';
+import CourseListL1Screen from './screens/course/CourseListL1Screen';
+import CourseListL2Screen from './screens/course/CourseListL2Screen';
+import CourseViewerFullScreen from './screens/course/CourseViewerFullScreen';
+
+// import CourseMediaListL1Screen from './screens/media/CourseMediaListL1Screen';
+import CourseMediaListL2Screen from './screens/media/CourseMediaListL2Screen';
+import CourseMediaListL3Screen from './screens/media/CourseMediaListL3Screen';
+import CourseListScreen from './screens/media/CourseListScreen';
+
 import CardSortScreen from './screens/CardSortScreen';
 import MediaScreen from './screens/MediaScreen';
 import NotePage from './screens/NotePage';
@@ -34,7 +39,12 @@ function App() {
         <Stack.Screen name="CourseListL2Screen" component={CourseListL2Screen} />
         <Stack.Screen name="CourseViewerFullScreen" component={CourseViewerFullScreen} />
         {/* <Stack.Screen name="CourseFullScreen" component={CourseFullScreen} /> */}
+
+        <Stack.Screen name="CourseMediaListL2Screen" component={CourseMediaListL2Screen} />
+        <Stack.Screen name="CourseMediaListL3Screen" component={CourseMediaListL3Screen} />
         <Stack.Screen name="CourseListScreen" component={CourseListScreen} />
+        <Stack.Screen name="MediaScreen" component={MediaScreen} />
+
         <Stack.Screen name="CardSortScreen" component={CardSortScreen} />
         <Stack.Screen name="NotePage" component={NotePage} />
         {/* <Stack.Screen name="Screen2" component={Screen2} />
