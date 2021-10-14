@@ -228,8 +228,7 @@ const CourseListL1Screen = ({ navigation }) => {
         }
     }
     let navTo = (opts) => {
-        // navigation.navigate('CourseListL2Screen', opts)
-        alert('not yet')
+        navigation.navigate('AllCourseFullScreen', opts)
     }
     let navToMedia = (opts) => {
         navigation.navigate('AllCourseMediaListL2Screen', opts)
@@ -281,7 +280,7 @@ const CourseListL1Screen = ({ navigation }) => {
                                     <View key={m.id}
                                         style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
                                         {(tabNo === 1) && (<CardSortItem opts={cardItemOpts1} course={m}
-                                            onPress={() => navTo({ courseL1: m })}
+                                            onPress={() => navTo({ courseL3: m })}
                                             sorting={sorting}
                                         />)}
                                         {(tabNo === 2) && (<TrainMediaCardItem opts={cardItemOpts} course={m}
