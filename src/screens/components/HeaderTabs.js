@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         padding: 10,
         paddingHorizontal: 20,
         borderRadius: 5,
-        backgroundColor: 'lightblue',
+        
     },
 });
 

@@ -240,18 +240,18 @@ const styles = StyleSheet.create({
         flex: 1,
         // justifyContent: 'center',
         // alignItems: 'center',
-        backgroundColor: 'pink',
+        
     },
     leftMenu: {
         // backgroundColor: 'blue',
         flex: 1,
     },
     mainContent: {
-        // backgroundColor: 'yellow',
+        // 
         flex: 4,
     },
     headerText: {
-        // backgroundColor: 'lightblue',
+        // 
         fontSize: 30,
     },
     buttonList: {

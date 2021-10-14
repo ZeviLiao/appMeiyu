@@ -259,18 +259,18 @@ const styles = StyleSheet.create({
         flex: 1,
         // justifyContent: 'center',
         // alignItems: 'center',
-        // backgroundColor: 'pink',
+        // 
     },
     leftMenu: {
         backgroundColor: 'blue',
         flex: 1,
     },
     mainContent: {
-        backgroundColor: 'yellow',
+        
         flex: 4,
     },
     banner: {
-        backgroundColor: 'lightblue',
+        
         height: '50%',
         marginBottom: 15,
     },
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     },
     // scrollView: {
-    //     backgroundColor: 'pink',
+    //     
     //     // marginHorizontal: 20,
     // },
     buttonCardsWrapper: {
