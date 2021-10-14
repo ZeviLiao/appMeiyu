@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="129" height="92">
+    <defs>
+        <filter id="a" x="0" y="0" width="129" height="92" filterUnits="userSpaceOnUse">
+            <feOffset dy="3"/>
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feFlood flood-opacity=".161"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g style="filter:url(#a)">
+        <path data-name="note_frame_add" d="M37 0h74v74H37A37 37 0 0 1 0 37 37 37 0 0 1 37 0z" transform="translate(9 6)" style="fill:#c9a143"/>
+    </g>
+    <path d="M15421.756-10362.918v-15.5h-15.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5h15.5v-15.5a2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5v15.5h15.5a2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5h-15.5v15.5a2.5 2.5 0 0 1-2.5 2.5 2.5 2.5 0 0 1-2.5-2.5z" transform="translate(-15363.256 10423.918)" style="fill:#fafafa"/>
+</svg>

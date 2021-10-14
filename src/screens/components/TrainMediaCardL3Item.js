@@ -1,10 +1,11 @@
 //import liraries
 import React, { Component } from 'react';
 import { TouchableOpacity, View, Text, StyleSheet, Image } from 'react-native';
+import SvgUri from "expo-svg-uri";
 
 // create a component
 const TrainMediaCardL2Item = (props) => {
-    let { opts, course, onPress } = props
+    let { opts, course, onPress, onAddBook} = props
     return (
         <TouchableOpacity onPress={onPress}>
             <View style={[styles.container, opts.size]}>
@@ -17,6 +18,11 @@ const TrainMediaCardL2Item = (props) => {
                 <View style={{ padding: 15 }} >
                     <Text style={[{ marginBottom: 10 }, opts.fontTitle]}>{course.title}</Text>
                     <Text style={opts.fontDesc}>{course.subTitle} </Text>
+                </View>
+                <View style={styles.addBook}>
+                    <TouchableOpacity onPress={() => onAddBook()}>
+                        <SvgUri source={require('../../assets/icon/icon_book.svg')} />
+                    </TouchableOpacity>
                 </View>
 
             </View>
@@ -59,6 +65,15 @@ const styles = StyleSheet.create({
     // desc: {
     //     fontSize: 24
     // }
+    addBook: {
+        // width: 30,
+        // height: 30,
+        position: 'absolute',
+        // backgroundColor: '#00ffaa',
+        right: 15,
+        bottom: 15,
+        // borderRadius: 15
+    },
 });
 
 //make this component available to the app
