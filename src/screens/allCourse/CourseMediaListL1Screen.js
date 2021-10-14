@@ -9,17 +9,16 @@ import TrainHeaderTabs from '../components/TrainHeaderTabs';
 import CardSortItem from '../components/CardSortItem';
 import TrainCardItem from '../components/TrainCardItem';
 import TrainMediaCardItem from '../components/TrainMediaCardItem';
-// import SvgUri from "expo-svg-uri";
+import { DraggableGrid } from 'react-native-draggable-grid';
 
 // create a component
 const CourseListL1Screen = ({ navigation }) => {
 
-    const [dragging, setDragging] = useState(false)
-    const [sorting, setSorting] = useState(false)
 
-    const mediaList = [
+    const initialState = [
         {
             id: 1,
+            key:'1',
             picUrl: '',
             duration: '50:00',
             title: '標題1',
@@ -29,6 +28,7 @@ const CourseListL1Screen = ({ navigation }) => {
         },
         {
             id: 2,
+            key:'2',
             picUrl: '',
             duration: '08:00',
             title: '標題2',
@@ -38,6 +38,7 @@ const CourseListL1Screen = ({ navigation }) => {
         },
         {
             id: 3,
+            key:'3',
             picUrl: '',
             duration: '50:00',
             title: '標題1',
@@ -47,6 +48,7 @@ const CourseListL1Screen = ({ navigation }) => {
         },
         {
             id: 4,
+            key:'4',
             picUrl: '',
             duration: '08:00',
             title: '標題2',
@@ -56,6 +58,7 @@ const CourseListL1Screen = ({ navigation }) => {
         },
         {
             id: 5,
+            key:'5',
             picUrl: '',
             duration: '50:00',
             title: '標題1',
@@ -65,6 +68,7 @@ const CourseListL1Screen = ({ navigation }) => {
         },
         {
             id: 6,
+            key:'6',
             picUrl: '',
             duration: '08:00',
             title: '標題2',
@@ -74,6 +78,7 @@ const CourseListL1Screen = ({ navigation }) => {
         },
         {
             id: 7,
+            key:'7',
             picUrl: '',
             duration: '50:00',
             title: '標題1',
@@ -83,6 +88,7 @@ const CourseListL1Screen = ({ navigation }) => {
         },
         {
             id: 8,
+            key:'8',
             picUrl: '',
             duration: '08:00',
             title: '標題2',
@@ -91,6 +97,9 @@ const CourseListL1Screen = ({ navigation }) => {
             mediaSrc: ''
         },
     ]
+
+    const [dragging, setDragging] = useState(false)
+    const [sorting, setSorting] = useState(false)
 
     const mediaList2 = [
         {
@@ -169,15 +178,17 @@ const CourseListL1Screen = ({ navigation }) => {
 
 
 
-    const [listData, setListData] = useState(mediaList);
+    const [listData, setListData] = useState(initialState);
     const [tabNo, setTabNo] = useState(1);
     // const { isMenu, isTabs } = props
     const { isMenu, isHeader, isTabs } = { isMenu: true, isHeader: false, isTabs: true }
 
     const showDocById = (id) => {
         setTabNo(id)
-        if (id === 1) setListData(mediaList)
-        else setListData(mediaList2)
+        if (id === 1) 
+            setListData(listData)
+        else 
+            setListData(mediaList2)
     }
 
     const tabList = [
@@ -248,7 +259,9 @@ const CourseListL1Screen = ({ navigation }) => {
             // </View>
             <View key={item.key}
                 style={[styles.listItem]}>
-                <CardSortItem opts={cardItemOpts} course={item} sorting />
+                <CardSortItem opts={cardItemOpts1} course={item}
+                    sorting={sorting}
+                />
             </View>
         );
     }
@@ -275,20 +288,33 @@ const CourseListL1Screen = ({ navigation }) => {
                 <ScrollView style={styles.listScrollWrapper}>
                     <View style={styles.listWrapper}>
                         {
-                            listData.map(m => {
-                                return (
-                                    <View key={m.id}
-                                        style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
-                                        {(tabNo === 1) && (<CardSortItem opts={cardItemOpts1} course={m}
-                                            onPress={() => navTo({ courseL3: m })}
-                                            sorting={sorting}
-                                        />)}
-                                        {(tabNo === 2) && (<TrainMediaCardItem opts={cardItemOpts} course={m}
-                                            onPress={() => navToMedia({ courseL1: m })}
-                                        />)}
-                                    </View>
-                                )
-                            })
+                            sorting ? (
+                                <DraggableGrid
+                                    numColumns={3}
+                                    renderItem={render_item}
+                                    data={listData}
+                                    onDragStart={() => setDragging(true)}
+                                    onDragRelease={(data) => {
+                                        setDragging(false)
+                                        setListData(data);// need reset the props data sort after drag release
+                                    }}
+                                />
+                            ) : (
+                                listData.map(item => {
+                                    return (
+                                        <View key={item.id}
+                                            style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
+                                            {(tabNo === 1) && (<CardSortItem opts={cardItemOpts1} course={item}
+                                                onPress={() => navTo({ courseL3: item })}
+                                                sorting={sorting}
+                                            />)}
+                                            {(tabNo === 2) && (<TrainMediaCardItem opts={cardItemOpts} course={item}
+                                                onPress={() => navToMedia({ courseL1: item })}
+                                            />)}
+                                        </View>
+                                    )
+                                })
+                            )
                         }
                     </View>
 
