@@ -13,6 +13,7 @@ import CardListItem from '../components/CardListItem';
 import NoteListItem from '../components/NoteListItem';
 // import CardSortItem from './components/CardSortItem';
 import { DraggableGrid } from 'react-native-draggable-grid';
+import SvgUri from "expo-svg-uri";
 
 
 // create a component
@@ -182,6 +183,7 @@ const AllCourseFullScreen = ({ navigation, route }) => {
 
     return (
         <SafeAreaView style={styles.container}>
+
             {isMenu && <LeftMenu style={styles.leftMenu}></LeftMenu>}
             <View style={styles.mainContent}>
                 {isHeader &&
@@ -201,24 +203,32 @@ const AllCourseFullScreen = ({ navigation, route }) => {
                                 data.map(m => {
                                     return (
                                         <CardListItem key={m.id} media={m}
-                                        onPress={() => navTo({ media: m })}
-                                    />
+                                            onPress={() => navTo({ media: m })}
+                                        />
                                     )
                                 })
                             }
                         </View>
                     )}
-                    {(compName === 'noteList') && (<View style={styles.noteListWrapper}>
-                        {
-                            data.map(n => {
-                                return (
-                                    <NoteListItem key={n.id} note={n} />
-                                )
-                            })
-                        }
-                    </View>)}
+                    {(compName === 'noteList') && (
+                        <View style={styles.noteListWrapper}>
+                            {
+                                data.map(n => {
+                                    return (
+                                        <NoteListItem key={n.id} note={n} />
+                                    )
+                                })
+                            }
+                        </View>
+                    )}
                 </ScrollView>
             </View>
+            {
+                (compName === 'noteList') && <View style={styles.addNote}>
+                    <SvgUri source={require('../../assets/icon/icon_add.svg')} />
+                </View>
+            }
+
         </SafeAreaView>
     );
 };
@@ -260,6 +270,19 @@ const styles = StyleSheet.create({
     },
     noteListWrapper: {
         alignSelf: 'center',
+    },
+    addNote: {
+        position: 'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 97,
+        height: 74,
+        right: 0,
+        bottom: 40,
+        backgroundColor: 'rgb(201,161,67)',
+        borderTopLeftRadius: 37,
+        borderBottomLeftRadius: 37,
+
     }
 });
 

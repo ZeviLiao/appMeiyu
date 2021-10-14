@@ -1,7 +1,9 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
+import { BorderlessButton } from 'react-native-gesture-handler';
 import BackButton from './components/common/BackButton';
+import SvgUri from "expo-svg-uri";
 
 // create a component
 const NodePage = ({ route }) => {
@@ -9,6 +11,10 @@ const NodePage = ({ route }) => {
     const { id } = route.params;
     return (
         <SafeAreaView style={styles.container}>
+            <View style={styles.removeNote}>
+                <SvgUri source={require('../assets/icon/icon_garbage.svg')} />  
+                {/* icon_add */}
+            </View>
             <View>
                 <ScrollView style={styles.noteWrapper}>
                     <Text style={styles.title}>NodePage {id}</Text>
@@ -51,6 +57,19 @@ const styles = StyleSheet.create({
     },
     desc: {
         fontSize: 28,
+    },
+    removeNote: {
+        position: 'absolute',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 97,
+        height: 74,
+        right: 0,
+        bottom: 40,
+        backgroundColor: 'rgb(201,161,67)',
+        borderTopLeftRadius: 37,
+        borderBottomLeftRadius: 37,
+
     }
 });
 
