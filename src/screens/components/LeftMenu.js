@@ -36,12 +36,12 @@ const LeftMenu = () => {
             iconName: 'videoIcon.svg', // videoIcon_l.svg
         },
         {
-            routeName: 'LearnList',
+            routeName: 'EmptyScreen', //LearnList
             menuLabel: '學習清單',
             iconName: 'listIcon.svg', // listIcon_l.svg
         },
         {
-            routeName: 'Tools',
+            routeName: 'EmptyScreen', // Tools
             menuLabel: '教具',
             iconName: 'toolIcon.svg', //toolIcon_l.svg
         },
@@ -56,9 +56,9 @@ const LeftMenu = () => {
                 <Avatar ></Avatar>
                 <View style={{ marginTop: 15, alignItems: 'center' }}>
                     <View >
-                        {menuList.map(menu => (
+                        {menuList.map((menu, i) => (
                             <View style={{ marginBottom: 23 }}
-                                key={menu.routeName}>
+                                key={i}>
                                 <MenuItem
                                     {...menu}
                                     navTo={navTo}

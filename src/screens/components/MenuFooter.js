@@ -11,12 +11,12 @@ const MenuFooter = () => {
 
     const menuList = [
         {
-            routeName: 'Setting',
+            routeName: 'EmptyScreen', // Setting
             menuLabel: '設定',
             iconName: 'settingIcon.svg', // homeIcon_l.svg
         },
         {
-            routeName: 'HelpCenter',
+            routeName: 'EmptyScreen',  // HelpCenter
             menuLabel: '幫助',
             iconName: 'helpIcon.svg',  // Lesson_icon_l.png
         },
@@ -28,10 +28,10 @@ const MenuFooter = () => {
 
     return (
         <View style={styles.container}>
-                {menuList.map(menu => (
+                {menuList.map((menu,i) => (
                     <View style={styles.menuItem}
-                        key={menu.routeName}>
-                        <MenuItem {...menu} >
+                        key={i}>
+                        <MenuItem {...menu} navTo={navTo}>
                             {menu.menuLabel}
                         </MenuItem>
                     </View>)
