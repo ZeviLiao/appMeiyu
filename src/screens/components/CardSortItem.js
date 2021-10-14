@@ -1,27 +1,38 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { Image, View, Text, StyleSheet } from 'react-native';
+import SvgUri from "expo-svg-uri";
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // create a component
 const CardSortItem = (props) => {
-    let { opts, course, sorting } = props
+    let { opts, course, sorting, onPress } = props
     return (
-        <View style={[styles.container, opts.size]}>
+        <TouchableOpacity onPress={onPress}>
+            <View style={[styles.container, opts.size]}>
 
-            <Image
-                style={styles.img}
-                source={{
-                    uri: 'https://via.placeholder.com/208x117',
-                }}
-            />
-
-            <Text style={opts.fontTitle}>{course.title}</Text>
-            <Text style={opts.fontDesc}>{course.subTitle} </Text>
-            {
-                (sorting) && <View style={styles.moveIcon}><Text>三</Text></View>
-            }
-            <View style={styles.trashcan}><Text>口</Text></View>
-        </View>
+                <Image
+                    style={styles.img}
+                    source={{
+                        uri: 'https://via.placeholder.com/208x117',
+                    }}
+                />
+                <View style={{ padding: 15 }}>
+                    <Text style={opts.fontTitle}>{course.title}</Text>
+                    <Text style={opts.fontDesc}>{course.subTitle} </Text>
+                </View>
+                {
+                    (sorting) && <View style={styles.moveIcon}>
+                        <Image style={{ width: 20, height: 20 }} source={require('../../assets/images/icon_move_class.png')} />
+                    </View>
+                }
+                <View style={styles.trashcan}>
+                    <TouchableOpacity onPress={() => alert('remove')}>
+                        <SvgUri source={require('../../assets/icon/iconGarbage_circle.svg')} />
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </TouchableOpacity>
     );
 };
 
@@ -30,7 +41,7 @@ const styles = StyleSheet.create({
     container: {
         // flex: 1,
         // justifyContent: 'center',
-        alignItems: 'center',
+        // alignItems: 'center',
         backgroundColor: '#fefeee',
         marginHorizontal: 10,
         // width: 200,
@@ -53,7 +64,7 @@ const styles = StyleSheet.create({
     img: {
         // width: 50,
         // height: 50,
-        width: 207,
+        width: 208,
         height: 117,
     },
     // title: {
@@ -64,21 +75,19 @@ const styles = StyleSheet.create({
     //     fontSize: 24
     // }
     trashcan: {
-        width: 30,
-        height: 30,
+        // width: 30,
+        // height: 30,
         position: 'absolute',
-        backgroundColor: '#00ffaa',
-        right: 5,
-        bottom: 5,
-        borderRadius: 15
+        // backgroundColor: '#00ffaa',
+        right: 15,
+        bottom: 15,
+        // borderRadius: 15
     },
     moveIcon: {
-        width: 30,
-        height: 30,
         position: 'absolute',
-        backgroundColor: '#ffefef',
-        top: 5,
-        left: 5,
+        // backgroundColor: '#ffefef',
+        top: 15,
+        left: 15,
     }
 });
 

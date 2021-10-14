@@ -4,12 +4,12 @@ import {
     ScrollView, SafeAreaView, Text, StyleSheet, View, Button,
     TouchableOpacity
 } from 'react-native';
-import LeftMenu from './components/LeftMenu';
-import ScreenHeader from './components/ScreenHeader';
-import HtmlViewer from './components/HtmlViewer';
-import HeaderTabs from './components/HeaderTabs';
+import LeftMenu from '../components/LeftMenu';
+import ScreenHeader from '../components/ScreenHeader';
+import HtmlViewer from '../components/HtmlViewer';
+import HeaderTabs from '../components/HeaderTabs';
 // import CardListItem from './components/CardListItem';
-import CardSortItem from './components/CardSortItem';
+import CardSortItem from '../components/CardSortItem';
 import { DraggableGrid } from 'react-native-draggable-grid';
 
 

@@ -1,16 +1,21 @@
 //import liraries
 import React, { Component, useState } from 'react';
-import { ScrollView, SafeAreaView, Text, StyleSheet, View, Button } from 'react-native';
+import { Image, TouchableOpacity, ScrollView, SafeAreaView, Text, StyleSheet, View, Button } from 'react-native';
 import LeftMenu from '../components/LeftMenu';
 import ScreenHeader from '../components/ScreenHeader';
 import HtmlViewer from '../components/HtmlViewer';
 import TrainHeaderTabs from '../components/TrainHeaderTabs';
-// import CardListItem from './components/CardListItem';
+// import CardListItem from '../components/CardListItem';
+import CardSortItem from '../components/CardSortItem';
 import TrainCardItem from '../components/TrainCardItem';
 import TrainMediaCardItem from '../components/TrainMediaCardItem';
+// import SvgUri from "expo-svg-uri";
 
 // create a component
 const CourseListL1Screen = ({ navigation }) => {
+
+    const [dragging, setDragging] = useState(false)
+    const [sorting, setSorting] = useState(false)
 
     const mediaList = [
         {
@@ -186,7 +191,27 @@ const CourseListL1Screen = ({ navigation }) => {
         },
     ]
 
-    const cardItemOpts = { // card 1
+
+
+    const cardItemOpts1 = { // card 1
+        size: {
+            width: 208,
+            height: 230,
+        },
+        fontTitle: {
+            fontSize: 20,
+            color: 'rgb(26,26,26)',
+            marginBottom: 10,
+            // textAlign: 'center',
+        },
+        fontDesc: {
+            fontSize: 15,
+            color: 'rgb(26,26,26)',
+            // textAlign: 'center',
+        }
+    }
+
+    const cardItemOpts = { // card 2
         size: {
             width: 219,
             height: 219,
@@ -202,26 +227,31 @@ const CourseListL1Screen = ({ navigation }) => {
             textAlign: 'center',
         }
     }
-
-    // const cardItemOpts = { // card 2
-    //     size: {
-    //         width: 163,
-    //         height: 181,
-    //     },
-    //     fontTitle: {
-    //         fontSize: 16,
-    //     },
-    //     fontDesc: {
-    //         fontSize: 13,
-    //     }
-    // }
-
     let navTo = (opts) => {
         // navigation.navigate('CourseListL2Screen', opts)
         alert('not yet')
     }
     let navToMedia = (opts) => {
         navigation.navigate('AllCourseMediaListL2Screen', opts)
+    }
+
+    const toggleSort = () => {
+        setSorting(!sorting)
+    }
+
+    const render_item = (item) => {
+        return (
+            // <View
+            //     style={styles.item}
+            //     key={item.key}
+            // >
+            //     <Text style={styles.item_text}>{item.name}</Text>
+            // </View>
+            <View key={item.key}
+                style={[styles.listItem]}>
+                <CardSortItem opts={cardItemOpts} course={item} sorting />
+            </View>
+        );
     }
 
     return (
@@ -237,6 +267,12 @@ const CourseListL1Screen = ({ navigation }) => {
                 {isTabs && <TrainHeaderTabs
                     tabList={tabList}
                     tabClick={(docId) => showDocById(docId)} />}
+
+                {(tabNo === 1) && (<TouchableOpacity onPress={toggleSort} style={styles.sort}>
+                    <Image style={{ width: 25, height: 25 }} source={require('../../assets/images/icon_sort.png')} />
+                    <Text style={{ fontSize: 20, color: 'rgba(26,26,26, 0.7)' }}>{(sorting) ? ' 完成' : ' 排序'}</Text>
+                </TouchableOpacity>)}
+
                 <ScrollView style={styles.listScrollWrapper}>
                     <View style={styles.listWrapper}>
                         {
@@ -244,8 +280,9 @@ const CourseListL1Screen = ({ navigation }) => {
                                 return (
                                     <View key={m.id}
                                         style={[styles.listItem, (cardItemOpts.size.width < 200) ? { width: '25%' } : {}]}>
-                                        {(tabNo === 1) && (<TrainCardItem opts={cardItemOpts} course={m}
+                                        {(tabNo === 1) && (<CardSortItem opts={cardItemOpts1} course={m}
                                             onPress={() => navTo({ courseL1: m })}
+                                            sorting={sorting}
                                         />)}
                                         {(tabNo === 2) && (<TrainMediaCardItem opts={cardItemOpts} course={m}
                                             onPress={() => navToMedia({ courseL1: m })}
@@ -255,7 +292,9 @@ const CourseListL1Screen = ({ navigation }) => {
                             })
                         }
                     </View>
+
                 </ScrollView>
+
             </View>
         </SafeAreaView>
     );
@@ -287,7 +326,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     listScrollWrapper: {
-        padding: 40,
+        margin: 40,
+        // backgroundColor: 'blue'
     },
     listWrapper: {
         flexDirection: 'row',
@@ -300,7 +340,13 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 30,
-    }
+    },
+    sort: {
+        flexDirection: 'row',
+        position: 'absolute',
+        top: 75,
+        right: 20
+    },
 });
 
 //make this component available to the app

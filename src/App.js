@@ -18,7 +18,7 @@ import AllCourseMediaListL2Screen from './screens/allCourse/CourseMediaListL2Scr
 import AllCourseMediaListL3Screen from './screens/allCourse/CourseMediaListL3Screen';
 import AllCourseFullScreen from './screens/allCourse/AllCourseFullScreen';
 
-import CardSortScreen from './screens/CardSortScreen';
+import CardSortScreen from './screens/allCourse/CardSortScreen';
 import NotePage from './screens/NotePage';
 
 
@@ -55,8 +55,8 @@ function App() {
         <Stack.Screen name="AllCourseMediaListL2Screen" component={AllCourseMediaListL2Screen} />
         <Stack.Screen name="AllCourseMediaListL3Screen" component={AllCourseMediaListL3Screen} />
         <Stack.Screen name="AllCourseFullScreen" component={AllCourseFullScreen} />
-
         <Stack.Screen name="CardSortScreen" component={CardSortScreen} />
+
         <Stack.Screen name="NotePage" component={NotePage} />
         {/* <Stack.Screen name="Screen2" component={Screen2} />
         <Stack.Screen name="Screen3" component={Screen3} /> */}
