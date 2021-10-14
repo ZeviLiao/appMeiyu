@@ -8,9 +8,14 @@ import TrainHeaderTabs from '../components/TrainHeaderTabs';
 // import CardListItem from './components/CardListItem';
 import TrainCardItem from '../components/TrainCardItem';
 import TrainMediaCardItem from '../components/TrainMediaCardItem';
+import { Searchbar } from 'react-native-paper';
 
 // create a component
 const CourseListL1Screen = ({ navigation }) => {
+
+    const [searchQuery, setSearchQuery] = React.useState('');
+
+    const onChangeSearch = query => setSearchQuery(query);
 
     const mediaList = [
         {
@@ -237,6 +242,20 @@ const CourseListL1Screen = ({ navigation }) => {
                     tabList={tabList}
                     tabClick={(docId) => showDocById(docId)} />}
                 <ScrollView style={styles.listScrollWrapper}>
+                    {(tabNo === 2) &&
+                        (
+                            <Searchbar
+                                placeholder="Search"
+                                onChangeText={onChangeSearch}
+                                value={searchQuery}
+                                style={{
+                                    borderRadius: 30,
+                                    marginBottom:20,
+                                    marginTop: -15,
+                                }}
+                            />
+                        )
+                    }
                     <View style={styles.listWrapper}>
                         {
                             listData.map(m => {
