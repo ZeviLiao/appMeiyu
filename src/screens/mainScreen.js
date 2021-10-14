@@ -200,13 +200,13 @@ const MainScreen = ({ navigation }) => {
                         onPress={item => alert(JSON.stringify(item))}
                         contentContainerStyle={{ paddingHorizontal: 50 }}
                         indicatorContainerStyle={{ position: 'absolute', bottom: 20 }}
-                        indicatorActiveColor={'#8e44ad'}
+                        indicatorActiveColor={'#ffffff'}
                         indicatorInActiveColor={'#ffffff'}
                         indicatorActiveWidth={30}
                         animation
                         separatorWidth={20}
                     />
-                </View>
+                 </View>
                 <View style={styles.buttonList}>
                     {
                         btnList.map((btn, i) => (
