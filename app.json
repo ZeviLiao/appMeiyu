@@ -3,6 +3,7 @@
     "name": "appMeiyu",
     "slug": "appMeiyu",
     "version": "1.0.0",
+    "owner": "duco",
     "assetBundlePatterns": [
       "**/*"
     ],

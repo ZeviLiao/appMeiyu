@@ -5,7 +5,7 @@
     <key>EXUpdatesSDKVersion</key>
     <string>42.0.0</string>
     <key>EXUpdatesURL</key>
-    <string>https://exp.host/@zevi/appMeiyu</string>
+    <string>https://exp.host/@duco/appMeiyu</string>
     <key>EXUpdatesEnabled</key>
     <true/>
     <key>EXUpdatesCheckOnLaunch</key>
